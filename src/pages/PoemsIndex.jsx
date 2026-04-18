@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { 
@@ -12,28 +12,18 @@ import { mahabharataInfo, poems } from '../data/poems'
 
 const PoemsIndex = () => {
   const [searchParams, setSearchParams] = useSearchParams()
-  const initialPart = searchParams.get('part') || 'all'
-  const [selectedPart, setSelectedPart] = useState(initialPart)
+  const selectedPart = searchParams.get('part') || 'all'
   const [searchQuery, setSearchQuery] = useState('')
   
-  // Update URL when part changes
   const handlePartChange = (part) => {
-    setSelectedPart(part)
+    const newParams = new URLSearchParams(searchParams)
     if (part === 'all') {
-      searchParams.delete('part')
+      newParams.delete('part')
     } else {
-      searchParams.set('part', part)
+      newParams.set('part', part)
     }
-    setSearchParams(searchParams)
+    setSearchParams(newParams)
   }
-  
-  // Sync with URL on mount
-  useEffect(() => {
-    const partFromUrl = searchParams.get('part')
-    if (partFromUrl && partFromUrl !== selectedPart) {
-      setSelectedPart(partFromUrl)
-    }
-  }, [searchParams])
   
   const filteredPoems = poems.filter(poem => {
     const matchesPart = selectedPart === 'all' || poem.part === selectedPart
@@ -50,7 +40,7 @@ const PoemsIndex = () => {
       className="min-h-screen pt-24 pb-16"
     >
       {/* Header */}
-      <header className="px-6 py-16">
+      <header className="px-4 sm:px-6 py-10 sm:py-16">
         <div className="max-w-6xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -76,7 +66,7 @@ const PoemsIndex = () => {
       </header>
       
       {/* Filters */}
-      <section className="px-6 mb-12">
+      <section className="px-4 sm:px-6 mb-8 sm:mb-12">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -104,13 +94,13 @@ const PoemsIndex = () => {
             </div>
             
             {/* Search */}
-            <div className="relative">
+            <div className="relative w-full sm:w-auto">
               <input
                 type="text"
                 placeholder="Search poems..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-64 px-4 py-2 bg-sanctum-darker border border-sanctum-gold/20 rounded-lg text-sanctum-cream placeholder:text-sanctum-cream/30 focus:outline-none focus:border-sanctum-gold/50 transition-colors"
+                className="w-full sm:w-64 px-4 py-2 bg-sanctum-darker border border-sanctum-gold/20 rounded-lg text-sanctum-cream placeholder:text-sanctum-cream/30 focus:outline-none focus:border-sanctum-gold/50 transition-colors"
               />
               <svg 
                 className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-sanctum-cream/30"
@@ -136,13 +126,16 @@ const PoemsIndex = () => {
       </section>
       
       {/* Poems Grid */}
-      <section className="px-6">
+      <section className="px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           <motion.div 
-            layout
-            className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+            key={selectedPart}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
+            className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6"
           >
-            <AnimatePresence mode="popLayout">
+            <AnimatePresence mode="wait">
               {filteredPoems.map((poem, index) => (
                 <PoemGridCard key={poem.id} poem={poem} index={index} />
               ))}
@@ -208,17 +201,15 @@ const PoemGridCard = ({ poem, index }) => {
   const CardContent = () => (
     <motion.div
       ref={ref}
-      layout
       initial={{ opacity: 0, y: 30, scale: 0.95 }}
       animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 30, scale: 0.95 }}
-      exit={{ opacity: 0, scale: 0.95 }}
       transition={{ 
         duration: 0.5, 
         delay: Math.min(index * 0.05, 0.3),
         ease: "easeOut" 
       }}
       whileHover={isComplete ? { y: -8, scale: 1.02 } : {}}
-      className={`group relative h-[280px] p-5 rounded-lg border transition-all ${
+      className={`group relative h-[220px] sm:h-[280px] p-4 sm:p-5 rounded-lg border transition-all ${
         isComplete 
           ? 'bg-sanctum-darker border-sanctum-gold/20 hover:border-sanctum-gold/50 cursor-pointer' 
           : 'bg-sanctum-darker/30 border-sanctum-gold/5 cursor-default'
@@ -232,7 +223,7 @@ const PoemGridCard = ({ poem, index }) => {
       </div>
       
       {/* Poem number */}
-      <div className={`font-display text-4xl ${
+      <div className={`font-display text-2xl sm:text-4xl ${
         isComplete ? 'text-sanctum-gold/60 group-hover:text-sanctum-gold' : 'text-sanctum-cream/15'
       } transition-colors`}>
         {poem.number}
@@ -240,7 +231,7 @@ const PoemGridCard = ({ poem, index }) => {
       
       {/* Content */}
       <div className="mt-4 relative z-10">
-        <h3 className={`font-display text-lg leading-tight ${
+        <h3 className={`font-display text-sm sm:text-lg leading-tight ${
           isComplete ? 'text-sanctum-cream group-hover:text-sanctum-gold' : 'text-sanctum-cream/30'
         } transition-colors`}>
           {poem.title}

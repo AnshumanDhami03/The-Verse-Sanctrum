@@ -11,6 +11,19 @@
   body {
     @apply bg-sanctum-black text-sanctum-cream font-body;
     overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* Restore cursor on touch/mobile — custom glow is desktop only */
+  @media (hover: none) and (pointer: coarse) {
+    body, *, *::before, *::after {
+      cursor: auto !important;
+    }
+  }
+
+  /* Hide default cursor on all elements on desktop */
+  *, *::before, *::after {
+    cursor: none !important;
   }
   
   ::selection {
@@ -102,7 +115,7 @@
   
   /* Stanza styling */
   .stanza {
-    @apply mb-8 leading-relaxed;
+    @apply mb-6 sm:mb-8 leading-relaxed;
   }
   
   .stanza-line {
@@ -246,21 +259,4 @@
 .music-wave.paused span {
   animation-play-state: paused;
   height: 20% !important;
-}
-
-/* Custom cursor - hide default */
-* {
-  cursor: none !important;
-}
-
-/* Show default cursor on inputs and textareas */
-input, textarea, select {
-  cursor: text !important;
-}
-
-/* Mobile - show normal cursor */
-@media (hover: none) and (pointer: coarse) {
-  * {
-    cursor: auto !important;
-  }
 }

@@ -126,10 +126,10 @@ const MahabharataLanding = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl text-sanctum-cream tracking-wide">
+            <h1 className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-sanctum-cream tracking-wide">
               The Mahabharata
             </h1>
-            <p className="mt-4 font-display text-xl md:text-2xl text-sanctum-gold italic">
+            <p className="mt-4 font-display text-lg sm:text-xl md:text-2xl text-sanctum-gold italic">
               An Epic in Verse
             </p>
           </motion.div>
@@ -159,7 +159,7 @@ const MahabharataLanding = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="mt-10 flex justify-center gap-12"
+            className="mt-10 flex justify-center gap-6 sm:gap-12"
           >
             <Stat number={mahabharataInfo.totalPoems} label="Poems" />
             <Stat number={mahabharataInfo.parts.length} label="Parts" />
@@ -206,7 +206,7 @@ const MahabharataLanding = () => {
       </motion.section>
       
       {/* Parts Overview Section */}
-      <section className="py-32 px-6">
+      <section className="py-16 sm:py-32 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-16">
@@ -230,7 +230,7 @@ const MahabharataLanding = () => {
       </section>
       
       {/* Latest Poems Section */}
-      <section className="py-32 px-6 bg-sanctum-darker/50">
+      <section className="py-16 sm:py-32 px-4 sm:px-6 bg-sanctum-darker/50">
         <div className="max-w-6xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-16">
@@ -243,7 +243,7 @@ const MahabharataLanding = () => {
             </div>
           </ScrollReveal>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {completedPoems.slice(0, 6).map((poem, index) => (
               <ScrollReveal key={poem.id} delay={index * 0.1}>
                 <PoemCard poem={poem} />
@@ -320,13 +320,13 @@ const PartCard = ({ part, index }) => {
     <Link to={`/mahabharata/poems?part=${part.number}`}>
       <motion.div
         whileHover={{ x: 10 }}
-        className="group flex items-center gap-6 p-6 bg-sanctum-darker/50 border border-sanctum-gold/10 rounded-lg hover:border-sanctum-gold/30 transition-colors cursor-pointer"
+        className="group flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 p-5 sm:p-6 bg-sanctum-darker/50 border border-sanctum-gold/10 rounded-lg hover:border-sanctum-gold/30 transition-colors cursor-pointer"
       >
         <div className="text-sanctum-gold/50 group-hover:text-sanctum-gold transition-colors">
           <Icon size={50} />
         </div>
         <div className="flex-1">
-          <div className="flex items-baseline gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4">
             <span className="font-display text-2xl text-sanctum-gold">Part {part.number}</span>
             <span className="font-display text-xl text-sanctum-cream group-hover:text-sanctum-gold transition-colors">{part.title}</span>
           </div>

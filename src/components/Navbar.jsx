@@ -24,6 +24,10 @@ const Navbar = () => {
   
   const isHome = location.pathname === '/'
   const isMahabharata = location.pathname.startsWith('/mahabharata')
+  const isPoemReader = location.pathname.startsWith('/mahabharata/poem/')
+  
+  // On poem pages, the PoemReader has its own full nav — hide the global bar
+  if (isPoemReader) return null
   
   return (
     <>
@@ -37,7 +41,7 @@ const Navbar = () => {
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="max-w-7xl mx-auto px-6 py-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 group">
@@ -48,7 +52,7 @@ const Navbar = () => {
               >
                 <OmSymbol size={32} />
               </motion.div>
-              <span className="font-display text-xl text-sanctum-cream tracking-wider group-hover:text-sanctum-gold transition-colors">
+              <span className="font-display text-base sm:text-xl text-sanctum-cream tracking-wider group-hover:text-sanctum-gold transition-colors hidden xs:block sm:block">
                 The Verse Sanctum
               </span>
             </Link>
@@ -109,16 +113,12 @@ const Navbar = () => {
               <MobileNavLink to="/" onClick={() => setIsMobileMenuOpen(false)}>
                 Home
               </MobileNavLink>
-              {isMahabharata && (
-                <>
-                  <MobileNavLink to="/mahabharata" onClick={() => setIsMobileMenuOpen(false)}>
-                    Mahabharata
-                  </MobileNavLink>
-                  <MobileNavLink to="/mahabharata/poems" onClick={() => setIsMobileMenuOpen(false)}>
-                    All Poems
-                  </MobileNavLink>
-                </>
-              )}
+              <MobileNavLink to="/mahabharata" onClick={() => setIsMobileMenuOpen(false)}>
+                Mahabharata
+              </MobileNavLink>
+              <MobileNavLink to="/mahabharata/poems" onClick={() => setIsMobileMenuOpen(false)}>
+                All Poems
+              </MobileNavLink>
             </div>
           </motion.div>
         )}

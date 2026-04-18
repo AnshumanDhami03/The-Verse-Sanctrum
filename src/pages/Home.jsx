@@ -87,7 +87,7 @@ const Home = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="font-display text-5xl md:text-7xl lg:text-8xl text-sanctum-cream tracking-wider"
+            className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-sanctum-cream tracking-wider"
           >
             <span className="block">The Verse</span>
             <span className="block mt-2 text-shimmer">Sanctum</span>
@@ -125,7 +125,7 @@ const Home = () => {
       </motion.section>
       
       {/* Works Section */}
-      <section className="relative py-32 px-6">
+      <section className="relative py-16 sm:py-32 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           {/* Section header */}
           <ScrollReveal>
@@ -140,7 +140,7 @@ const Home = () => {
           </ScrollReveal>
           
           {/* Epic cards grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {/* Mahabharata Card - Active */}
             <ScrollReveal delay={0.1}>
               <EpicCard 
@@ -253,7 +253,7 @@ const EpicCard = ({ title, subtitle, description, status, progress, link, active
           transformStyle: "preserve-3d",
         }}
         whileHover={active ? { scale: 1.02 } : {}}
-        className={`relative group h-[400px] rounded-lg overflow-hidden ${
+        className={`relative group h-[320px] sm:h-[400px] rounded-lg overflow-hidden ${
           active ? 'cursor-pointer' : 'cursor-default opacity-50'
         }`}
       >

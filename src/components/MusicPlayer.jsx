@@ -9,7 +9,7 @@ const MusicPlayer = () => {
   
   // Using a more reliable royalty-free Indian flute audio
   // This is a meditation flute track
-  const audioSrc = "/music/flute.mp3"
+  const audioSrc = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3"
   
   useEffect(() => {
     if (audioRef.current) {
@@ -38,7 +38,7 @@ const MusicPlayer = () => {
   
   return (
     <motion.div
-      className="fixed bottom-6 right-6 z-40"
+      className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 1, duration: 0.5 }}
@@ -49,7 +49,7 @@ const MusicPlayer = () => {
         onClick={toggleMusic}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className={`relative flex items-center gap-3 px-4 py-3 backdrop-blur-sm border rounded-full transition-all ${
+        className={`relative flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2 sm:py-3 backdrop-blur-sm border rounded-full transition-all ${
           isPlaying 
             ? 'bg-sanctum-burgundy/80 border-sanctum-gold/50' 
             : 'bg-sanctum-darker/80 border-sanctum-gold/20 hover:border-sanctum-gold/40'

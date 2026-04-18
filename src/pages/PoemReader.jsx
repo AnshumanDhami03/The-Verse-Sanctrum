@@ -107,12 +107,12 @@ const PoemReader = () => {
               </Link>
 
               {/* Centre — current poem identifier */}
-              <div className="flex items-center gap-3 min-w-0 flex-1 justify-center">
-                <span className="font-display text-sanctum-gold text-sm shrink-0 opacity-70">
+              <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1 justify-center">
+                <span className="font-display text-sanctum-gold text-xs sm:text-sm shrink-0 opacity-70">
                   {poem.number}
                 </span>
                 <div className="w-px h-3.5 bg-sanctum-gold/25 shrink-0" />
-                <span className="font-display text-sanctum-cream/75 text-sm truncate">
+                <span className="font-display text-sanctum-cream/75 text-xs sm:text-sm truncate">
                   {poem.title}
                 </span>
               </div>
@@ -185,7 +185,7 @@ const PoemReader = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="font-display text-4xl md:text-5xl lg:text-6xl text-sanctum-cream"
+            className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-sanctum-cream"
           >
             {poem.title}
           </motion.h1>
@@ -195,7 +195,7 @@ const PoemReader = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="mt-4 font-display text-xl md:text-2xl text-sanctum-gold/80 italic"
+            className="mt-4 font-display text-base sm:text-xl md:text-2xl text-sanctum-gold/80 italic"
           >
             {poem.fullSubtitle || poem.subtitle}
           </motion.p>
@@ -243,7 +243,7 @@ const PoemReader = () => {
       </header>
       
       {/* Poem content */}
-      <main ref={contentRef} className="relative px-6 py-16">
+      <main ref={contentRef} className="relative px-4 sm:px-6 py-10 sm:py-16">
         <div className="max-w-3xl mx-auto">
           {sections.map((stanzas, sectionIndex) => (
             <div key={sectionIndex}>
@@ -276,7 +276,7 @@ const PoemReader = () => {
       </main>
       
       {/* Navigation footer */}
-      <footer className="px-6 py-16 border-t border-sanctum-gold/10">
+      <footer className="px-4 sm:px-6 py-10 sm:py-16 border-t border-sanctum-gold/10">
         <div className="max-w-4xl mx-auto">
           {/* End ornament */}
           <div className="flex justify-center mb-12">
@@ -291,7 +291,7 @@ const PoemReader = () => {
           </div>
           
           {/* Prev/Next navigation */}
-          <div className="flex justify-between items-center gap-4">
+          <div className="flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-4">
             {prevPoem ? (
               <Link 
                 to={`/mahabharata/poem/${prevPoem.id}`}
@@ -366,7 +366,7 @@ const StanzaBlock = ({ stanza, index }) => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: lineIndex * 0.05 }}
-          className="stanza-line text-lg md:text-xl text-sanctum-cream/90 leading-relaxed"
+          className="stanza-line text-base sm:text-lg md:text-xl text-sanctum-cream/90 leading-relaxed"
           dangerouslySetInnerHTML={{ 
             __html: formatLine(line) 
           }}
