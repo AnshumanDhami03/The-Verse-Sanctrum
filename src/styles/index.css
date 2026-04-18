@@ -1,0 +1,266 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Base Styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-sanctum-black text-sanctum-cream font-body;
+    overflow-x: hidden;
+  }
+  
+  ::selection {
+    @apply bg-sanctum-gold/30 text-sanctum-cream;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-sanctum-darker;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-sanctum-gold/40 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-sanctum-gold/60;
+  }
+}
+
+/* Custom Components */
+@layer components {
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-sanctum-gold via-sanctum-gold-light to-sanctum-gold bg-clip-text text-transparent;
+  }
+  
+  .text-shimmer {
+    background: linear-gradient(
+      90deg,
+      #d4a84b 0%,
+      #e8c476 25%,
+      #d4a84b 50%,
+      #e8c476 75%,
+      #d4a84b 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 3s linear infinite;
+  }
+  
+  .border-gradient-gold {
+    border: 1px solid transparent;
+    background: linear-gradient(#0a0a0a, #0a0a0a) padding-box,
+                linear-gradient(135deg, #d4a84b, #6b1c23, #d4a84b) border-box;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-500 ease-out;
+  }
+  
+  .card-hover:hover {
+    @apply -translate-y-2;
+    box-shadow: 0 20px 40px -15px rgba(212, 168, 75, 0.2);
+  }
+  
+  .btn-primary {
+    @apply relative overflow-hidden px-8 py-3 bg-sanctum-burgundy text-sanctum-cream font-display text-lg tracking-wider uppercase;
+    @apply border border-sanctum-gold/30 transition-all duration-300;
+  }
+  
+  .btn-primary::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-sanctum-gold/0 via-sanctum-gold/20 to-sanctum-gold/0;
+    @apply -translate-x-full transition-transform duration-500;
+  }
+  
+  .btn-primary:hover::before {
+    @apply translate-x-full;
+  }
+  
+  .btn-primary:hover {
+    @apply border-sanctum-gold bg-sanctum-burgundy-light;
+  }
+  
+  /* Decorative line */
+  .line-ornament {
+    @apply flex items-center justify-center gap-4;
+  }
+  
+  .line-ornament::before,
+  .line-ornament::after {
+    content: '';
+    @apply h-px w-16 bg-gradient-to-r from-transparent via-sanctum-gold/50 to-transparent;
+  }
+  
+  /* Stanza styling */
+  .stanza {
+    @apply mb-8 leading-relaxed;
+  }
+  
+  .stanza-line {
+    @apply block;
+  }
+  
+  /* Poem section break */
+  .section-break {
+    @apply flex items-center justify-center gap-3 my-12 text-sanctum-gold/60;
+  }
+  
+  .section-break::before,
+  .section-break::after {
+    content: '';
+    @apply h-px w-24 bg-gradient-to-r from-transparent via-sanctum-gold/30 to-transparent;
+  }
+}
+
+/* Custom Utilities */
+@layer utilities {
+  .text-shadow-gold {
+    text-shadow: 0 0 20px rgba(212, 168, 75, 0.3);
+  }
+  
+  .text-shadow-glow {
+    text-shadow: 0 0 30px rgba(212, 168, 75, 0.5), 0 0 60px rgba(212, 168, 75, 0.3);
+  }
+  
+  .noise-overlay {
+    position: relative;
+  }
+  
+  .noise-overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+  }
+  
+  /* Parallax helper */
+  .parallax-slow {
+    will-change: transform;
+  }
+  
+  /* Magnetic button effect */
+  .magnetic {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Reveal animations */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Stagger children */
+  .stagger-children > * {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  .stagger-children.active > *:nth-child(1) { animation: slideUp 0.6s 0.1s ease forwards; }
+  .stagger-children.active > *:nth-child(2) { animation: slideUp 0.6s 0.2s ease forwards; }
+  .stagger-children.active > *:nth-child(3) { animation: slideUp 0.6s 0.3s ease forwards; }
+  .stagger-children.active > *:nth-child(4) { animation: slideUp 0.6s 0.4s ease forwards; }
+  .stagger-children.active > *:nth-child(5) { animation: slideUp 0.6s 0.5s ease forwards; }
+  .stagger-children.active > *:nth-child(6) { animation: slideUp 0.6s 0.6s ease forwards; }
+}
+
+/* Page transition */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.page-transition-exit {
+  opacity: 1;
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Cursor glow effect */
+.cursor-glow {
+  pointer-events: none;
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(212, 168, 75, 0.08) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  transition: opacity 0.3s ease;
+}
+
+/* Loading screen */
+.loading-screen {
+  @apply fixed inset-0 bg-sanctum-black flex items-center justify-center z-50;
+}
+
+.loading-om {
+  @apply text-sanctum-gold text-6xl animate-pulse-slow;
+}
+
+/* Music visualizer */
+.music-wave {
+  @apply flex items-end gap-0.5 h-4;
+}
+
+.music-wave span {
+  @apply w-0.5 bg-sanctum-gold rounded-full;
+  animation: wave 1s ease-in-out infinite;
+}
+
+.music-wave span:nth-child(1) { animation-delay: 0s; height: 30%; }
+.music-wave span:nth-child(2) { animation-delay: 0.1s; height: 60%; }
+.music-wave span:nth-child(3) { animation-delay: 0.2s; height: 100%; }
+.music-wave span:nth-child(4) { animation-delay: 0.3s; height: 60%; }
+.music-wave span:nth-child(5) { animation-delay: 0.4s; height: 30%; }
+
+@keyframes wave {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.5); }
+}
+
+.music-wave.paused span {
+  animation-play-state: paused;
+  height: 20% !important;
+}
+
+/* Custom cursor - hide default */
+* {
+  cursor: none !important;
+}
+
+/* Show default cursor on inputs and textareas */
+input, textarea, select {
+  cursor: text !important;
+}
+
+/* Mobile - show normal cursor */
+@media (hover: none) and (pointer: coarse) {
+  * {
+    cursor: auto !important;
+  }
+}
