@@ -5,7 +5,7 @@ export const mahabharataInfo = {
   subtitle: "An Epic in Verse",
   description: "A retelling of the world's greatest epic in the grand tradition of Ottava Rima, the poetic form of Ariosto, Tasso, and Byron. Forty poems spanning the complete saga of the Bharata dynasty, from cosmic origins to divine ascension.",
   totalPoems: 40,
-  completedPoems: 6,
+  completedPoems: 8,
   parts: [
     { number: 'I', title: 'The Foundations', poems: '1-8', description: 'Origins, Ancestry, Seeds of Conflict' },
     { number: 'II', title: 'The Birth of Rivals', poems: '9-14', description: 'Births of Dhritarashtra, Pandu, Kauravas, Pandavas' },
