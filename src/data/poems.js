@@ -4812,11 +4812,11 @@ The Bharata line shall live, shall not grow pale."`
   // Placeholder for remaining poems
   ...Array.from({ length: 32 }, (_, i) => ({
     id: i + 9,
-    number: toRoman(i + 7),
-    title: getPlaceholderTitle(i + 7),
+    number: toRoman(i + 9),
+    title: getPlaceholderTitle(i + 9),
     subtitle: 'Coming Soon',
     fullSubtitle: '',
-    part: getPartForPoem(i + 7),
+    part: getPartForPoem(i + 9),
     status: 'coming-soon',
     summary: '',
     stanzaCount: 0,
