@@ -3589,8 +3589,1228 @@ This was the man, O listener, now you know,
 Whose story set the Mahabharata's glow."`
   },
   
+   // Poem 7 — complete
+  {
+    id: 7,
+    number: 'VII',
+    title: "Satyavati and the Sage",
+    subtitle: 'The Secret the River Kept',
+    fullSubtitle: 'The Birth of Vyasa and the Hidden Past of a Queen',
+    part: 'I',
+    status: 'complete',
+    summary: 'Before she was a queen, Satyavati was a fisherwoman on the Yamuna. A chance meeting with the sage Parashara changes her life forever — she is gifted divine fragrance, her purity restored, and she gives birth to the greatest sage the world has ever known: Vyasa himself.',
+    stanzaCount: 35,
+    content: `When morning mist lay soft upon the river,
+And Sauti paused to feed the dying flame,
+The sages leaned in close, their spirits quiver
+With longing for the tale he next would claim.
+"O Sauti," Shaunaka spoke, "from whence there came
+This Satyavati, queen of Hastinapura?
+Who was she truly? What was her allure
+Before she stood beside the aging king?
+You speak of fragrance, sweet beyond all measure,
+Of beauty such as minstrels love to sing,
+But who was she before the crown and throne?
+Tell us the secret she has always known."
+ 
+---STANZA_BREAK---
+ 
+And Sauti smiled and bowed his silver head,
+And said, "O sages, you have asked me well.
+For Satyavati's story, wisely read,
+Is one that only time itself could tell.
+Before she wore the jewels kings compel
+Their queens to wear, before the royal hall,
+Before King Shantanu was held in thrall
+By fragrance drifting from her lotus skin,
+She was a girl of most condition small,
+Who ferried strangers through the river's din
+Upon a humble boat, with humble oar,
+A fisherman's own daughter, nothing more."
+ 
+---STANZA_BREAK---
+ 
+"Her father was the chieftain of his clan,
+A man who ruled the river and its trade,
+Who lived and breathed the Yamuna's great span
+And cast his nets beneath the morning's shade.
+And she who was his daughter, unafraid
+Of wind or wave, would row the crossing wide,
+From bank to bank, through current, foam, and tide,
+A girl of dusky skin and lotus eyes,
+Whose beauty made the river seem less wide,
+Whose smile could light the most unfeeling skies.
+Her name was Matsyagandha in those days,
+For fish-scent clung to her in all her ways."
+ 
+---STANZA_BREAK---
+ 
+"The smell of fish upon her hair and hands,
+Upon her garments worn from morning's start,
+The scent that marked her as one who understands
+The river's trade, the fisher's humble art.
+Yet those who looked upon her saw her heart
+Was not a heart of common, lowly birth,
+But something rare and precious, full of worth,
+A spirit bright as any queen who reigned.
+Her eyes held depths no sounding-line could plumb for mirth,
+Her form held grace that could not be explained
+By any logic, any earthly cause,
+Save that the gods themselves had written her laws."
+ 
+---STANZA_BREAK---
+ 
+"The young men of the fishermen would come
+To watch her row and pretend they had a need
+To cross the river, standing still and dumb
+With longing, watching how she paid no heed
+To any of their glances. She would lead
+Her boat through every current, every stone,
+Her oar arm sure and strong, her manner known
+To none but the river and the open sky.
+She neither courted love nor stood alone
+By choice, but simply let the days go by,
+Rowing and singing softly to the stream,
+Her life as clear and simple as a dream."
+ 
+---SECTION_BREAK---
+ 
+"Now on a day of pale and misty light,
+When river-fog lay thick on either shore,
+When Yamuna was still as polished night
+And silence lay on every rippling floor,
+A sage appeared upon the bank, and more
+Than any ordinary wandering man,
+His presence filled the air since time began
+With power, sacred, terrible, and bright.
+His name was Parashara, who began
+The world's great penance in the mountains' height,
+Whose tapas burned so fierce that gods above
+Grew fearful of his terrible resolve."
+ 
+---STANZA_BREAK---
+ 
+"Now Parashara was no common seer,
+Though many seers had walked the sacred land.
+His father's father's father, year by year,
+Had built a line of rishis, burning-manned
+With spiritual fire. And he had planned
+Since his own youth to go beyond them all,
+To climb where none before had dared to crawl,
+To touch the face of knowledge absolute.
+He had sat in caves where winters fall
+Like walls of ice and meditated mute
+For decades, speaking nothing, eating less,
+His only company the wilderness."
+ 
+---STANZA_BREAK---
+ 
+"He had seen the fabric of the world unweave
+And weave again before his inner eye,
+Had watched the gods themselves begin to grieve
+At what he knew, and beg him to comply
+With limits mortal men must live and die
+Beneath. But Parashara only smiled
+And went on in his penance, reconciled
+To something larger than the gods' own fear.
+He was a man the universe had styled
+For purposes that would not yet be clear
+Until the day he stood upon the shore
+And called across the water for an oar."
+ 
+---STANZA_BREAK---
+ 
+"This Parashara called across the water,
+His voice like temple bells upon the air,
+'O ferrymaid, O fisherman's fair daughter,
+Row me across, for I must journey there.'
+And Matsyagandha, breathing morning prayer,
+Took up her oar and brought the boat around,
+And Parashara stepped aboard, and found
+Himself so close to her that in that space
+Between them something trembled, something found
+Its way from heart to heart, from face to face.
+He looked at her. She looked away, and then
+He knew he would not look away again."
+ 
+---STANZA_BREAK---
+ 
+"'O maiden,' said the sage, his voice grown low,
+'I have walked through every holy land,
+I have seen the Ganga in its highest flow,
+I have touched the peak where Shiva's armies stand.
+I have counted stars with this outstretched hand,
+I have spoken with the gods in their own tongue,
+I have lived through ages, old and also young,
+But never in the world's great turning wheel
+Have I seen such beauty, never sung
+Such praises as your eyes alone reveal.
+I am a sage, O maiden, not a king,
+But I would offer you a wondrous thing.'"
+ 
+---STANZA_BREAK---
+ 
+"Now Matsyagandha gripped her oar more tight,
+And kept her eyes upon the river's face.
+'O sage,' she said, 'you are a man of light,
+A man of dharma, wisdom, holy grace.
+I am a girl of most unworthy place,
+A fisher's daughter, nothing but the same.
+The smell of fish clings ever to my name,
+My hands are rough from rowing day to day.
+What can I give a sage of sacred fame?
+What offering could one like me convey?'
+She paused upon the oar and looked ahead,
+And Parashara heard what went unsaid."
+ 
+---STANZA_BREAK---
+ 
+"He raised his hand and spoke a single word,
+And from that word a fog rose thick and white,
+A mist so dense that nothing could be heard,
+That wrapped the boat in soft and silver light.
+No eye on shore could pierce that curtained sight,
+No boatman near could see what passed between
+The sage and maiden in that fog-wrapped scene,
+That sacred space where time itself stood still.
+And when the mist at last rose from the scene,
+And river-light returned the morning chill,
+A silence lay between them, pure and vast,
+As if the world itself had held its breath and passed."
+ 
+---STANZA_BREAK---
+ 
+"Then Parashara spoke with tender grace,
+His voice now soft as any evening prayer,
+'O maiden, look upon your hands, your face,
+And tell me what you find that was not there.'
+She looked, and marveled, for the morning air
+Carried not the smell of fish and brine,
+But something else, a fragrance half divine,
+Like lotus flowers opening after rain,
+Like incense burning at a holy shrine,
+Like musk and sandalwood and summer's grain.
+The smell of fish was gone from every part,
+As if it never was, from the very start."
+ 
+---STANZA_BREAK---
+ 
+"'This gift I give you first,' the sage said then,
+'That you shall never smell of the river's keep.
+Instead, a fragrance sweeter far than men
+Have ever known shall from your body seep,
+A scent so pure that even those asleep
+A league away shall breathe it and be blest.
+They will call you Yojanagandha, pressed
+By fortune's hand, the one whose fragrance flies
+A yojana in every wind expressed,
+A fragrance born of heaven's own sunrise.
+Go through the world, O maiden, fresh and fair,
+With heaven's sweetness floating in your hair.'"
+ 
+---STANZA_BREAK---
+ 
+"And then the sage said more, his eyes still kind,
+'One further gift I give before I go.
+Your maidenhood, that you feared you left behind,
+Is restored to you, as pure as morning snow.
+You shall go home as innocent as so
+You were before this morning, pure and whole.
+No mark, no memory to trouble your soul,
+Save one, and that one wrapped in love, not shame,
+A child shall come from that morning's sacred toll,
+A child who will set the very world aflame
+With knowledge, wisdom, truth beyond all men,
+A sage whose like the world shall not see again.'"
+ 
+---STANZA_BREAK---
+ 
+"'He shall be born upon an island fair,
+That rises from the river's middle stream,
+With skin as dark as monsoon midnight air,
+With eyes that hold all knowledge like a dream.
+They will call him Krishna Dwaipayana, the gleam
+Of wisdom's very soul made mortal flesh.
+And when he grows and time begins afresh,
+He shall divide the Vedas into four,
+Their ancient hymns made new again and fresh,
+And spread their light from every shore to shore.
+This is the son I give to you this day,
+A gift beyond all gifts, beyond all pay.'"
+ 
+---STANZA_BREAK---
+ 
+"The sage then blessed her with his sacred hand,
+And rose, and walked upon the water's face,
+As naturally as walking on dry land,
+And disappeared into the morning's space.
+And Matsyagandha sat in that still place,
+Her oar across her knees, her heart aglow,
+Not knowing what the future held below
+The river of her life, not knowing then
+That she would one day sit where great kings go,
+That she would be a queen among all men.
+She only knew the fragrance on her skin,
+And felt the sacred life that stirred within."
+ 
+---SECTION_BREAK---
+ 
+"In time, she came to the river's middle ground,
+That island garlanded with ancient trees,
+Where lotus flowers bloomed without a sound,
+And sacred birds sang hymns upon the breeze.
+And there, as effortlessly as one who sees
+The dawn arrive without a herald's call,
+She gave her child to the world, to stand or fall
+Among the greatest beings ever born.
+He came into the world without a squall,
+Without a cry, as radiant as morn,
+Dark-skinned and bright-eyed, solemn as a stone,
+And looked upon his mother and was known."
+ 
+---STANZA_BREAK---
+ 
+"He did not cry as other children cry,
+He did not reach with helpless, grasping hand.
+He looked upon the river and the sky,
+And seemed to already fully understand
+The whole of time, the sea, the sky, the land,
+The past that lay behind, the future vast.
+He was a sage before the first breath passed
+His lips, a knower from his very birth.
+His mother held him, marveling, steadfast,
+And wept with joy and sorrow mixed in mirth,
+For she could see, though why she could not say,
+That he would not remain with her that day."
+ 
+---STANZA_BREAK---
+ 
+"The child grew not in months as children do,
+But in the space of days his form grew tall,
+As if the usual rules of growing through
+Childhood's slow stages simply did not call
+To him. He walked before his mother's shawl
+Had dried from washing in the river's cold.
+He spoke in full-formed sentences, and told
+His mother things she had no way to know,
+Of dharma, karma, stories yet untold,
+Of how the wheel of life must always flow.
+She listened, half in wonder, half in dread,
+At what this extraordinary child said."
+ 
+---STANZA_BREAK---
+ 
+"He told her of the Vedas and their streams,
+Of how the sacred knowledge had grown old
+And heavy, how its weight exceeded beams
+That any single man could hope to hold.
+'I shall divide it, mother,' so he told
+Her one bright morning by the river's edge,
+'Into four rivers from one mountain ledge,
+That men of different minds may each find
+Their portion of the truth along their hedge
+Of understanding. Knowledge should be kind
+To those who seek it, meeting every mind
+Where it can reach, not leaving it behind.'"
+ 
+---STANZA_BREAK---
+ 
+"She marveled at him, this child of mist and sage,
+This gift from Parashara's sacred flame.
+He seemed already of a different age
+From everything around him, yet the same
+Boy who had drunk her milk and known her name
+In those first island hours before the world
+Reclaimed him. Now his destiny unfurled
+Before her like a map of endless skies,
+And she could see the banner-flags uncurled
+Of greatness written large behind his eyes,
+A greatness that was not for her to keep
+But only bear, like water, dark and deep."
+ 
+---STANZA_BREAK---
+ 
+"And so it was. He stood upon the sand,
+This rapidly-grown child who spoke as sage,
+And took his mother gently by the hand,
+And spoke, his voice already deep with age,
+'Mother, I am called by destiny's page
+Toward the forest, where the mountains sleep,
+Toward the penance that my life must keep,
+Toward the knowledge waiting to be known.
+I cannot stay, for dharma will not reap
+Its harvest if the seed is left unsown.
+But know this, mother, know it and be still,
+Whenever you have need of me, I will.'"
+ 
+---STANZA_BREAK---
+ 
+"'Call out my name in any time of grief,
+In any crisis, any desperate hour,
+And I shall come to you, beyond belief,
+Before the next cloud loses all its shower.
+This is the gift I give, my mother's dower,
+A son who cannot stay but will return
+Whenever you have need of him, who'll burn
+Through any distance, any depth of time.
+No mountain, sea, or forest, dark and stern,
+Can keep me from you when you give the sign.
+So do not weep, for we shall meet again,
+When Bharata's great line is pressed with pain.'"
+ 
+---STANZA_BREAK---
+ 
+"And with those words he turned and walked away,
+Into the river's mist, into the trees,
+Into the forest that would be his stay
+For years of penance, study, and degrees
+Of wisdom gathered on the highest leas
+Of spiritual knowledge. She watched him go,
+Her eyes upon his back, her movements slow
+As someone wading through a tide of loss.
+He did not turn again. She watched the glow
+Of his dark form diminish and then cross
+The tree line's edge and vanish like a word
+Spoken too softly to be fully heard."
+ 
+---STANZA_BREAK---
+ 
+"She sat upon the island's bank alone,
+The river flowing past as if unmoved,
+As if the world had always fully known
+That partings such as this were long approved
+By fate. The water neither wept nor grooved
+Its surface with the weight of what had passed.
+The birds still sang. The morning shadows cast
+Their angles on the sand as they had done
+Before her son was born and grew so fast
+And left. She was alone beneath the sun,
+A maiden again by blessing, mother by soul,
+Both emptied out and somehow made more whole."
+ 
+---STANZA_BREAK---
+ 
+"She rowed back to her father's house that day,
+A maiden once again, by blessing graced,
+With heaven's fragrance lighting all her way,
+Her secret locked within her, interlaced
+With grief and wonder, sorrow interlaced
+With something else, a pride beyond all name.
+For she had given the world a sacred flame,
+A light that would burn brighter than the sun.
+And though no one around her knew her claim
+To such a gift, she knew what she had done.
+She kept the secret locked within her breast,
+And ferried strangers, east and also west."
+ 
+---SECTION_BREAK---
+ 
+"Now years went by, as years in India do,
+Each monsoon washing all the old away,
+Each winter crisp and bright and cold and new,
+Each summer long and golden as the day.
+And Matsyagandha rowed from bay to bay,
+From bank to bank, through every kind of weather,
+Her fragrance wrapping everything together,
+Until one morning, as we have been told,
+A king rode to the river, light as feather
+Upon his royal horse, and there behold,
+He smelled a scent that stopped him on his way,
+A fragrance sweeter than the dawning day."
+ 
+---STANZA_BREAK---
+ 
+"That king was Shantanu, and all the rest
+Of what transpired between that lord and she,
+How she became his queen, how she was blessed
+With sons who ruled, and how her destiny
+Was intertwined with Bhishma's, you shall see
+Unfolding as the tale moves further on.
+But I have told you this, before the dawn
+Of that great story, so that you might know
+The woman who stood there when all was drawn
+To crisis, who first planted the great show
+Of Bharata's saga, watered it with pain,
+And watched it grow like wheat through monsoon rain."
+ 
+---STANZA_BREAK---
+ 
+"For Satyavati was no ordinary woman,
+Though ordinary seemed her humble start.
+She was the mother of the most illumine
+Of sages, bearer of the wisest heart
+That ever beat within a mortal's part.
+And when the Kuru line came to its end,
+When Vichitravirya could not defend
+His body from the wasting illness brought
+By time, when all the dynasty would bend
+And break, it was this secret that she sought,
+And called upon her firstborn, dark and tall,
+To save the Bharatas from their final fall."
+ 
+---STANZA_BREAK---
+ 
+"'But that tale is for later in our song,
+When we speak of how the line continued on.
+For now let it be said she carried long
+Her secret, and that secret was a dawn
+That lit the entire world. For she had drawn
+From that one morning on the misty river,
+From Parashara's gift, that sacred giver,
+A thread of destiny both long and true
+That ran through every king and every liver
+Of this great tale, through every point of view.
+For Vyasa was the thread by which it all
+Was held together, lest the whole should fall.'"
+ 
+---STANZA_BREAK---
+ 
+"And Sauti paused and let the silence speak,
+And every sage sat deep in quiet thought.
+The tale of Satyavati, proud yet meek,
+Of all the secret wonder she had brought
+Into the world, of all the things untaught
+By any scripture, known to her alone,
+Had settled in their hearts and deeply sown
+Its seeds of wonder in the fertile ground
+Of listening souls. And Shaunaka had known
+A sadness mixed with joy, for he had found
+In her a person greater than the queen,
+A mother of the greatest ever seen."
+ 
+---STANZA_BREAK---
+ 
+"'O Sauti,' Shaunaka said at last and slow,
+'This woman carried more than we had thought.
+She bore a god within her, let him go
+Into the world, and asked for nothing bought
+Or given back. The sacrifice she wrought
+Was not of thrones or kingdoms, gold or blade,
+But of a mother watching unafraid
+As her own child walked forward into mist.
+This sacrifice is of the highest grade,
+The one that history often has dismissed,
+The quiet letting go, the open hand,
+The love that does not cling but learns to stand.'"
+ 
+---STANZA_BREAK---
+ 
+"And Sauti bowed his head in reverence deep,
+And said, 'O Shaunaka, you have said it true.
+The greatest sacrifices are the steep
+And silent ones that no one ever knew,
+The ones no sculptor carves and few construe
+In temple stone or legend's burning verse.
+Satyavati's gift ran through the universe
+As quietly as water through the sand,
+Yet without it, all would have gone adverse,
+And Bharata's great line would never stand.
+So honor her, O sages, in your hearts,
+For she is where the Mahabharata starts.'"
+ 
+---STANZA_BREAK---
+ 
+"And with those words, the fire burned down low,
+And night had settled deep upon the wood.
+The sages wrapped themselves against the cold below
+And thought of Matsyagandha as she stood
+Upon her boat in morning's misty hood,
+Of how a single meeting on the river
+Had changed the world, had been the sacred giver
+Of all that came, the source of everything,
+The hidden root from which the mighty sliver
+Of Bharata's long history took wing.
+Sleep came at last. The stars wheeled on above.
+And all the forest breathed the name of love."`
+  },
+ 
+  // Poem 8 — complete
+  {
+    id: 8,
+    number: 'VIII',
+    title: 'The Death of Kings and the Line Imperiled',
+    subtitle: 'When the Bharata Name Nearly Died',
+    fullSubtitle: 'Chitrangada Falls, Vichitravirya Fades, and the Dynasty Teeters on the Edge',
+    part: 'I',
+    status: 'complete',
+    summary: 'Three deaths shatter the Bharata line: Shantanu fades, Chitrangada falls to a Gandharva warrior, and the gentle Vichitravirya dies without an heir. Meanwhile Bhishma abducts three Kashi princesses — and Amba, the eldest, vows eternal vengeance for the ruin of her life.',
+    stanzaCount: 45,
+    content: `Now when the dawn broke soft on Naimisha's trees,
+The sages rose and sought the sacred fire.
+Their minds were still with Satyavati's leas
+Of secret sorrow, of the young desire
+That Parashara bore, that sage most dire
+In penance, gentle in his human part.
+And Shaunaka, who bore the wisest heart
+Among them, raised his voice and said aloud:
+"O Sauti, let your telling now impart
+What happened next beneath the mortal cloud
+That gathered over Hastinapura's crown
+When death began to pull its glory down."
+ 
+---STANZA_BREAK---
+ 
+And Sauti fed the fire with sacred wood
+And said, "O sages, now the tale grows dark,
+As any tale of mortal glory should
+When time has shot its most inevitable mark
+Against the brightest flame and snuffed its spark.
+For Shantanu, that king we loved so well,
+Whose love for Ganga we have heard me tell,
+Whose joy in Satyavati lit his age,
+Was mortal, as all men, and mortal fell
+At last beneath the turning of time's page.
+He died as kings die, quietly, in his bed,
+With Satyavati weeping at his head."
+ 
+---STANZA_BREAK---
+ 
+"Now Bhishma, that great pillar of the land,
+Who'd sworn his terrible and binding vow,
+Who'd given up the throne with his own hand
+So Shantanu's new sons might wear the brow
+Of kingship, stood beside the bier and bow
+Of grief, his face unreadable as stone.
+He wept not, for his discipline had grown
+So deep that even sorrow touched him not
+With outward sign, though in his heart was sown
+A grief as deep as any man has got
+Who loses not a king, but loses too
+The father that he never fully knew."
+ 
+---STANZA_BREAK---
+ 
+"For Shantanu had loved Devavrata,
+Had pressed him to his chest that day of meeting
+On the riverbank, when the great data
+Of time had brought them to that sacred greeting
+Between the long-lost son and father, fleeting
+With joy too brief. They'd had their years together,
+Those golden years before the further weather
+Of Satyavati's arrival changed the court.
+And Bhishma had been father's shield and tether,
+The strength that held the kingdom's every fort.
+Now Shantanu was gone, and in his place
+Was left a kingdom seeking its own face."
+ 
+---STANZA_BREAK---
+ 
+"Now Satyavati bore the weight of ruling,
+For Chitrangada, her firstborn son,
+Though strong of frame, required her careful schooling
+In kingship's arts before his reign begun.
+He was a warrior, eager to outrun
+His training, fierce of spirit, bold of eye,
+With his father's bearing and his mother's high
+And calculating mind behind his face.
+The people loved him for the way he'd try
+To fill his father's monumental space,
+And for a time, it seemed the kingdom's grief
+Was healed in him, was given sweet relief."
+ 
+---SECTION_BREAK---
+ 
+"But Chitrangada was young and proud and bright
+With that particular pride of one who knows
+His power and wishes all the world to fight
+Against it, that his greater glory shows.
+He rode to every boundary that encloses
+His kingdom, challenged every rival chief,
+Brought distant tribes to heel without relief
+From battle's constant calling in his ear.
+He lived for war as some men live for leaf
+And harvest, making every foe his fear.
+And so he thrived for years, this warrior king,
+With Bhishma's steady counsel following."
+ 
+---STANZA_BREAK---
+ 
+"But pride in battle draws the proudest foes,
+And Chitrangada's fame had traveled wide
+Across the three great worlds, and even those
+Who dwelled above had heard his name with pride
+And something else, a sting to heavenly side,
+That any mortal man should be so famed
+For war that even Gandharvas felt ashamed
+To let the boast go unanswered in the air.
+For there was one among them also named
+Chitrangada, a Gandharva beyond compare
+In beauty and in warfare, who had heard
+His name reduced to echo of a word."
+ 
+---STANZA_BREAK---
+ 
+"This Gandharva Chitrangada was old
+As time itself in his celestial form,
+A spirit forged of music, fierce and bold,
+Who ruled the Gandharva realm through every storm
+Of war and song. To hear his very name
+Reduced to echo by a mortal king
+Was more than pride could bear. The suffering
+Of wounded vanity drove him down below
+The heavens, to the mortal reckoning,
+To where the rivers of Saraswati flow,
+And there he challenged Hastinapura's son
+To single combat, under the open sun."
+ 
+---STANZA_BREAK---
+ 
+"Three years they fought along Saraswati's shore,
+Three years of single combat, day and night,
+Three years in which the very river wore
+The memory of their blows upon its sight.
+The Gandharva was ancient, dark with might,
+Forged from centuries of celestial war,
+While Chitrangada was young and burning for
+The glory that his mortal heart required.
+They were two flames that fed upon the core
+Of each other's pride, each one inspired
+By equal fierceness, neither one to yield,
+The mortal and immortal on one field."
+ 
+---STANZA_BREAK---
+ 
+"At last the Gandharva's ancient power proved
+The greater of the two, though only just.
+King Chitrangada fought until he moved
+No more, until his weapons turned to dust,
+Until the last breath left him, and the gust
+Of Gandharva fury claimed what was his right
+By ancient strength. The king fell in the fight,
+Without an heir, without a son to claim
+His father's throne. That battlefield at night
+Was silent save the river's mournful name,
+Repeated by the waters, cold and low:
+Chitrangada, Chitrangada, below."
+ 
+---STANZA_BREAK---
+ 
+"Now Satyavati heard the terrible news,
+And sat for three long days without a word.
+The grief she bore was not of those who lose
+A distant ruler, not the grief that's stirred
+By politics and protocol, but heard
+From somewhere deeper, where a mother keeps
+Her truest love. She'd watched him through the sleeps
+Of childhood, watched him learn to hold a bow,
+Watched him become the king whose valor sweeps
+All rivals from the field. And now the blow
+Had fallen, and her firstborn to the land
+Of death had gone by Gandharva's ancient hand."
+ 
+---SECTION_BREAK---
+ 
+"And Bhishma stood before her, grave and still,
+And said, 'O Queen, the kingdom must go on.
+Your second son must now fulfil
+The role that Chitrangada has gone
+Beyond. Young Vichitravirya, drawn
+From Shantanu's blood and yours, must take the throne.
+He is gentle, young, untested and alone
+In statecraft's ways, but I shall be his guide.
+Let not the Bharata line turn to bone
+And ash for want of a king. Set aside
+Your grief, O Queen, and let us crown the boy,
+And I shall be his shield and his employ.'"
+ 
+---STANZA_BREAK---
+ 
+"And Satyavati rose, for she was made
+Of sterner stuff than grief alone could break.
+She had been Matsyagandha, unafraid
+Of river's current, wind, and morning's wake.
+She had borne Vyasa for a sage's sake
+And let him go without a backward call.
+She had won Shantanu against the wall
+Of her own father's pride and her own fear.
+She was not one who lets the kingdom fall
+When sorrow presses hard. She dried each tear
+And said to Bhishma: 'Crown him. Make it done.
+Let Vichitravirya reign as Shantanu's son.'"
+ 
+---STANZA_BREAK---
+ 
+"So Vichitravirya was crowned the king,
+A gentle youth who much preferred the sound
+Of music to the clash of warring
+And battle's thunder on the open ground.
+He was his father's echo, one who found
+In beauty, art, and pleasure his great joy,
+In song, in dance, in every sweet employ
+Of peacetime's gifts. He was no warrior born,
+But kindly, warm, and eager to enjoy
+The gifts of life that war had always torn
+Away from those less fortunate than he.
+A different king, yet still a king was he."
+ 
+---STANZA_BREAK---
+ 
+"Now Bhishma saw the kingdom's urgent need,
+For Vichitravirya was of age to wed,
+And without heirs the Bharata royal seed
+Would wither at its root and leave the thread
+Of dynasty unspun. And Bhishma said
+To Satyavati: 'The time has come
+To find the prince his queens. I will not come
+To you with lesser brides than he deserves.
+The kingdom of Kashi has three daughters, from
+The finest blood in all the land. Fate serves
+An opening. Their swayamvara is set.
+I shall go there before the sun has set.'"
+ 
+---STANZA_BREAK---
+ 
+"Now swayamvaras were the sacred rite
+By which a princess chose her lord and groom
+From gathered suitors, each arrayed in bright
+Apparel, each contending in the room
+Of the princess's judgment. There the bloom
+Of every kingdom's finest sons would stand
+And she would choose among them, garland in hand,
+And place it on the neck of her desired.
+No man could take what was not by demand
+Of her own heart decided. None who tired
+Of the contest could depart with glory's name
+Unless the princess called his name in claim."
+ 
+---STANZA_BREAK---
+ 
+"Three daughters had the king of Kashi there:
+Amba, the eldest, proud as morning light,
+Ambika, second-born, of gentler care,
+Ambalika, the youngest, soft and bright.
+Each one was precious in her father's sight,
+Each one had suitors gathered from afar,
+Each one was like a newly rising star
+About to find its place in heaven's arc.
+The hall was full of princes near and far,
+From kingdoms bright and kingdoms cold and dark,
+All come to win what none had yet possessed:
+A bride from Kashi's most exalted nest."
+ 
+---STANZA_BREAK---
+ 
+"And Bhishma came among them, old and tall,
+His silver hair catching the morning's gleam,
+His presence filling every inch of hall
+With that particular, terrible esteem
+That greatness carries like a sacred stream
+Before it. Every prince who saw him there
+Fell quiet, for they recognized the air
+Of one before whom legends bow their head.
+This was the Bhishma, he who chose to bear
+Celibacy's vow, who left untread
+The path of throne and love and progeny,
+The greatest warrior of his century."
+ 
+---STANZA_BREAK---
+ 
+"He did not wait for garlands to be placed,
+He did not stand among the suitors' row
+And hope the princess's eye would be graced
+By him. He was not there to win or show
+Himself as worthy. He was there to go
+To war if necessary for his king's
+Behalf. And so he rose on silent wings
+Of action, went to where the princesses sat,
+And spoke to all the gathered suitors' rings:
+'I come for Hastinapura. Know that
+These three shall be the brides of Vichitravirya.
+Let any man who dares to stop me, hear ya.'"
+ 
+---STANZA_BREAK---
+ 
+"A silence fell upon that gathered crowd,
+A silence like the one before a storm
+When every bird has gone and every cloud
+Has darkened to its most ominous form.
+Then from the stunned assembly rose the warm
+Fury of a hundred wounded prides,
+A hundred princes drawing from their sides
+Their weapons, shouting curses at the old
+White-haired man who stood there and decides
+The fate of three young women, iron-bold,
+As if the swayamvara meant nothing there,
+As if the princesses had no choice or share."
+ 
+---STANZA_BREAK---
+ 
+"And Bhishma smiled the smile of one who has
+Seen every kind of battle, every form
+Of warfare from the subtle to the jazz
+Of open field, and stood within the storm
+Of a hundred weapons as a warm
+And pleasant afternoon. He drew his bow,
+The Gandiva's older kin, and let it flow
+With arrows so precise and fast and true
+That not one prince could land a blow,
+Not one could breach what Bhishma's arrows drew
+Around those three young women and himself:
+A wall of death that cleared the very shelf."
+ 
+---STANZA_BREAK---
+ 
+"He took the three princesses by his side,
+Set them upon his chariot, white as cloud,
+And drove back toward his kingdom with his bride
+Procession, while behind him, cowed
+And furious, the princes shouted loud
+Their rage. But one among them, Shalva, king
+Of his domain, whose heart's own suffering
+Was deep for Amba whom he loved before
+This day, gave chase with his own chariot's ring
+Of horses, calling out: 'Bhishma, no more!
+Return the eldest to me, she is mine!
+We pledged our hearts before this day's design!'"
+ 
+---STANZA_BREAK---
+ 
+"And Bhishma fought him off with steady arm,
+And Shalva, though he fought with every skill,
+Could not undo the elder warrior's charm
+Of battle-mastery. Against his will
+He fell behind, his horses, spent and still
+With effort, unable to match the pace
+Of Bhishma's chariot. And Bhishma's face
+Showed nothing but the calm of one who knows
+Exactly what he does. He set the race
+For Hastinapura, where the lotus grows
+Upon the royal lake, and brought the three
+Young women to their prescribed destiny."
+ 
+---SECTION_BREAK---
+ 
+"But destiny, O sages, is a thread
+That cannot be pulled easily one way
+Without the other end pulling with dread
+And equal force against the puller's sway.
+And Amba, eldest, had no wish to stay
+In Hastinapura as a stranger's bride.
+She went to Bhishma, stood before him, tried
+To speak with calm, though burning bright inside:
+'O Bhishma, I would speak to you,' she cried,
+'For I had given, before this fateful day,
+My heart to Shalva, and he to me the same.
+We pledged before the gods. I cannot claim
+ 
+---STANZA_BREAK---
+ 
+"And Bhishma, hearing this, grew pale and still,
+For he had not known of Amba's prior vow.
+He was a man of dharma, and the skill
+Of righteousness was his. He knew somehow
+That he had made an error, and the brow
+Of moral responsibility weighed on him
+More than any battle's every whim.
+He called his brother Vichitravirya,
+And told him what had passed, word by grim word.
+And Vichitravirya, gentle as a brier
+Without its thorns, agreed at once: 'Let her go.
+I will not take a bride who wills it so.'"
+ 
+---STANZA_BREAK---
+ 
+"So Amba was released and sent away
+With escort back to Shalva's kingdom fair,
+Her heart leaping for joy at that new day,
+At every mile that brought her through the air
+Closer to the man who placed her there
+Above all others in his careful heart.
+But when she came to Shalva's royal part
+Of the world, expecting his embrace,
+She found instead a cold and careful art
+Of rejection written on his face.
+'I cannot take you back,' said Shalva low,
+'Bhishma's hands have touched you. You must go.'"
+ 
+---STANZA_BREAK---
+ 
+"'I am a king,' said Shalva, proud and cold,
+'And kings do not take brides won and then lost
+By other warriors. What Bhishma bold
+Has carried off is marked at too great a cost
+Of honor. Go, Amba. You have crossed
+A threshold I cannot undo for you.
+My love for you was real, I say it true,
+But love must live within the bounds of pride.
+A warrior king cannot begin anew
+With one another warrior set aside.
+Forgive me, for my heart is yours. But go.
+This kingdom cannot hold what Bhishma's bow has set below.'"
+ 
+---STANZA_BREAK---
+ 
+"And Amba stood before him, devastated,
+Her whole world shattered in a single breath.
+She had been by Bhishma's act separated
+From the one she loved, and now this death
+Of hope from Shalva's lips. The aftermath
+Of Bhishma's action, however well-intended,
+Had left her ruined, her story ended
+Before it truly flowered into bloom.
+Her life's path twisted, broken, upended,
+By the choices of men who filled the room
+Of her existence with their honor and their pride,
+Leaving her with nothing left inside."
+ 
+---STANZA_BREAK---
+ 
+"She went to Bhishma then, her eyes ablaze
+With righteous fury, bright as sacred fire.
+'You are the cause of all of this,' she says,
+'Your action lit this ruin's burning pyre.
+You took me from my love without enquire
+Of my own heart's allegiance. Now no home
+Remains for me. I cannot further roam
+Back to my father's house in such disgrace,
+Nor go to Shalva's kingdom. All alone
+I stand, with nowhere that will give me place.
+Therefore hear me: I shall make your life
+As desolate as you have made mine with strife.'"
+ 
+---STANZA_BREAK---
+ 
+"Now Bhishma heard her words and felt the weight
+Of what he'd done press down upon his chest.
+He had acted for the kingdom's state,
+For Vichitravirya, for what he thought was best.
+But dharma, like a jewel dispossessed,
+Had more than one face turning in the light,
+And one face that had seemed so perfectly right
+From where he'd stood had cast a shadow long
+And dark on Amba's life. The ancient night
+Of unintended consequence, most strong
+Among fate's many weapons, had been drawn.
+And Amba's curse upon him was its dawn."
+ 
+---STANZA_BREAK---
+ 
+"She went to sages, seekers, holy men,
+She went to Parashurama, Bhishma's teacher,
+And begged him to avenge her grief, and then
+Parashurama, that fearsome fiery preacher
+Of warrior dharma, went to Bhishma, each a
+Mirror of the other's martial skill.
+They fought for days and neither could fulfil
+The victory, for teacher and his student
+Were equal in the end. The river's shrill
+Of water watched them, patient and most prudent,
+Until Parashurama stopped and said:
+'Amba, I have done what can be done. Ahead
+ 
+---STANZA_BREAK---
+ 
+"And Amba, seeing that no earthly power
+Could undo what had been done, turned then
+Her fury inward, spent a bitter hour
+And then a year and then ten years again
+In penance, asking Shiva's grace to obtain
+The power to destroy Bhishma in another birth.
+She walked through forest, mountain, sea, and earth,
+Performing austerities so fierce and long
+That Shiva granted her his sacred worth
+Of boon: 'You shall be born again, and strong
+Enough to be the cause of Bhishma's fall.
+This I grant you. I have heard your call.'"
+ 
+---STANZA_BREAK---
+ 
+"And Amba, satisfied at last, and tired
+Beyond the bearing of another year
+Of mortal life, walked into the fire
+She'd built herself and left without a tear
+This world. She would return. She would appear
+Again when Kurukshetra's field was set
+For that great war which has not happened yet
+In our telling, but which approaches sure
+As any morning, certain as the wet
+Of monsoon rains. But for now, the cure
+Of death was all she asked, and death she found,
+And went below the mortal world's great ground."
+ 
+---SECTION_BREAK---
+ 
+"But even as these shadows crossed the land,
+Life in the palace sought its lighter way.
+For Vichitravirya, understand,
+Had taken Ambika and Ambalika to stay
+As his two queens, and in the gentle play
+Of palace life, had found his happiness.
+He loved them both with quiet tenderness,
+With music played at evening's soft descent,
+With flowers gathered from the wilderness
+By servants, with the unhurried, unspent
+Devotion of a man for whom the world
+Was best when softly lived and gently furled."
+ 
+---STANZA_BREAK---
+ 
+"But Vichitravirya carried in his blood
+A weakness deeper than his gentle ways,
+A frailty underneath the mortal mud
+Of health that showed itself in certain days
+Of coughing through the long monsoon's dark haze,
+Of pallor coming over him at times
+When he had walked too long, or when the chimes
+Of evening brought a chill along the air.
+The healers came and mixed their herbs and limes
+And spoke of treatments with professional care,
+But in their eyes behind their careful words
+Was something dark as any winter birds."
+ 
+---STANZA_BREAK---
+ 
+"Seven years King Vichitravirya reigned,
+Seven years of gentle, peaceable time,
+Seven years in which the kingdom gained
+A respite from the war and blood and grime
+That kings more fierce might seek. And the sublime
+Ordinariness of those years was good,
+Was what a people needed after wood
+And iron of Chitrangada's endless wars.
+They ate, they slept, they farmed, they understood
+The pleasures of a life without the scars
+Of constant battle. Children came to birth.
+The land was soft with ordinary earth."
+ 
+---STANZA_BREAK---
+ 
+"But in the seventh year the illness came
+With force that no herb or prayer could turn.
+The coughing deepened, and the body's frame
+Of Vichitravirya began to burn
+With fever, then grow cold, then fever's stern
+Return, in cycles that the healers knew
+Were symptoms of a sickness pushing through
+All remedies like water through a net.
+His two queens sat beside him, and they knew
+Though none would speak it, what the night would set
+Before them when the darkness fully fell.
+He died before the morning's temple bell."
+ 
+---STANZA_BREAK---
+ 
+"Without a child. Without a son or daughter.
+Without a heir to carry Shantanu's name
+Into the generations, like the water
+That carries silt and makes the delta's frame
+Of fertile ground. The Bharata line's great claim
+To continuity had reached a wall
+So absolute it seemed the dynasty's fall
+Was not a future danger but a fact
+Already written. The royal hall
+Was empty of the future. Every act
+Of statecraft Bhishma knew was meaningless
+Without an heir to carry on the chess."
+ 
+---STANZA_BREAK---
+ 
+"Now Satyavati sat in her dark room,
+Three deaths upon her in the span of years:
+Her husband Shantanu, swallowed by the tomb
+Of age, and Chitrangada, whose tears
+She'd barely dried before the news of spears
+And Gandharva fury reached her door,
+And now this third, this gentlest of the four
+She'd loved: her son who never sought a war
+But died as if the world could not restore
+His body's failing lamp. She sat before
+The darkness and she let it be, until
+She found, within that dark, a harder will."
+ 
+---STANZA_BREAK---
+ 
+"She called for Bhishma in the deepest night,
+And when he came she looked upon his face
+And said: 'The line is broken. In the light
+Of morning, Hastinapura holds no grace
+Of heir, no child, no future in this place.
+But I have carried all my life a truth
+I have not spoken since my very youth
+Was on the island in the river's mist.
+I have a son, O Bhishma, from the tooth
+Of fate's own turning. You could not have guessed.
+He is the greatest sage the world has known.
+His name is Vyasa. I am not alone.'"
+ 
+---STANZA_BREAK---
+ 
+"And Bhishma looked at her with eyes that held
+No judgment, only the deep stillness of
+A man who has seen everything and welled
+With knowledge past all ordinary love
+Of drama or surprise. The stars above
+Had already told him stranger things than this.
+He said: 'Then call him, Queen. The dynasty's bliss
+Or ruin rests upon what happens next.
+If he can help the line, then nothing is
+Too strange or too unconventional. The text
+Of dharma has its methods. I have known
+Of niyoga. Call your son. He is our own.'"
+ 
+---STANZA_BREAK---
+ 
+"And so that night, for the first time since years
+Had passed since she had watched him walk away
+Into the forest mist, with all her fears
+And love compressed into that ancient day
+On the island, Satyavati let the gray
+Veil of her secret drop, and spoke his name.
+She spoke it softly, and he softly came,
+As he had promised on that long-gone shore.
+Through forest and through darkness, bright with flame
+Of his own inner light, he came before
+His mother, took her hands, and bowed his head.
+'I am here, mother. Tell me what you need,' he said."
+ 
+---STANZA_BREAK---
+ 
+"And Sauti paused, and fed the fire low,
+And said: 'O sages, there is more to tell
+Of what passed next, for what Vyasa's slow
+And sacred intervention did compel
+From those two queens, what heaven-touched spell
+Was woven in the dark of palace rooms,
+Is the very seed from which the blooms
+Of Dhritarashtra, Pandu, and Vidura grew,
+The three whose sons would fill the Kuru tombs
+And fields of Kurukshetra. This is true
+And this will come. But let us rest this night.
+The line imperiled shall find its light.'"
+ 
+---STANZA_BREAK---
+ 
+"The sages bowed and sought their beds of grass,
+But none could sleep, for none could cease to trace
+In mind's eye how the Bharata line did pass
+So close to ending in that single space
+Of Vichitravirya's childless, empty place.
+Three kings in one short span: the father, then
+The warrior son, and then the gentler man
+Who followed, each one gone without the seed
+Of heir secured. And Bhishma, vow in hand,
+Unable to step in and plant the need
+Of dynasty himself, had stood and watched
+The Bharata name come close to being notched
+ 
+---STANZA_BREAK---
+ 
+Into oblivion. Yet the river runs,
+As Sauti said, and finds another course
+When blocked by stone. And from those sunken suns
+Of dead kings, something had to find its source.
+And Vyasa, answering his mother's force
+Of need, had come back from the forest deep
+To do what dharma asked, and in the keep
+Of those two queens, to plant the future whole
+Of Bharata's story. Let the sages sleep.
+Tomorrow brings the seeding of the soul
+Of everything that follows in this tale.
+The Bharata line shall live, shall not grow pale."`
+  },
+ 
   // Placeholder for remaining poems
-  ...Array.from({ length: 34 }, (_, i) => ({
+  ...Array.from({ length: 32 }, (_, i) => ({
     id: i + 7,
     number: toRoman(i + 7),
     title: getPlaceholderTitle(i + 7),
@@ -3603,7 +4823,7 @@ Whose story set the Mahabharata's glow."`
     content: ''
   }))
 ]
-
+ 
 // Helper function to convert number to Roman numeral
 function toRoman(num) {
   const romanNumerals = [
@@ -3618,7 +4838,7 @@ function toRoman(num) {
   }
   return result
 }
-
+ 
 // Helper function to get part for poem number
 function getPartForPoem(poemNum) {
   if (poemNum <= 8) return 'I'
@@ -3629,12 +4849,10 @@ function getPartForPoem(poemNum) {
   if (poemNum <= 37) return 'VI'
   return 'VII'
 }
-
+ 
 // Placeholder titles for upcoming poems
 function getPlaceholderTitle(poemNum) {
   const titles = {
-    7: 'The Story of Satyavati and Vyasa\'s Birth',
-    8: 'The Death of Kings and the Line Imperiled',
     9: 'Vyasa and the Continuation of the Line',
     10: 'The Youth of the Princes',
     11: 'Kunti\'s Secret and the Curse of Pandu',
@@ -3670,5 +4888,5 @@ function getPlaceholderTitle(poemNum) {
   }
   return titles[poemNum] || `Poem ${poemNum}`
 }
-
+ 
 export default poems
