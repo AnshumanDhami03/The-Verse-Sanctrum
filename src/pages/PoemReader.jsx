@@ -1,396 +1,190 @@
-import React, { useState, useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
-import { 
-  BorderOrnament,
-  OmSymbol,
-  ChariotWheel,
-  Lotus
-} from '../components/Illustrations'
+import { motion, useScroll, useTransform, useSpring, AnimatePresence } from 'framer-motion'
 import { poems } from '../data/poems'
 
-const PoemReader = () => {
-  const { poemId } = useParams()
-  const navigate = useNavigate()
-  const [showNav, setShowNav] = useState(true)
-  const [lastScrollY, setLastScrollY] = useState(0)
-  const contentRef = useRef(null)
-  
-  const poem = poems.find(p => p.id === parseInt(poemId))
-  const prevPoem = poems.find(p => p.id === parseInt(poemId) - 1 && p.status === 'complete')
-  const nextPoem = poems.find(p => p.id === parseInt(poemId) + 1 && p.status === 'complete')
-  
-  const { scrollYProgress } = useScroll()
-  const progressWidth = useTransform(scrollYProgress, [0, 1], ['0%', '100%'])
-  
-  // Hide/show nav on scroll
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY
-      setShowNav(currentScrollY < lastScrollY || currentScrollY < 100)
-      setLastScrollY(currentScrollY)
-    }
-    
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [lastScrollY])
-  
-  // Scroll to top on poem change
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [poemId])
-  
-  if (!poem || poem.status !== 'complete') {
+function renderPoem(content) {
+  const sections = content.split('---SECTION_BREAK---')
+  return sections.map((section, sIdx) => {
+    const stanzas = section.split('---STANZA_BREAK---')
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <h2 className="font-display text-2xl text-sanctum-cream mb-4">Poem not found</h2>
-          <Link to="/mahabharata/poems" className="text-sanctum-gold hover:underline">
-            ← Back to all poems
-          </Link>
-        </div>
+      <div key={sIdx}>
+        {stanzas.map((stanza, stIdx) => {
+          const lines = stanza.trim().split('\n').filter(l => l.trim())
+          if (!lines.length) return null
+          return (
+            <div key={stIdx} className="stanza" style={{ marginBottom:'2rem' }}>
+              {lines.map((line, lIdx) => (
+                <span key={lIdx} className="stanza-line" style={{ display:'block', fontSize:'clamp(17px,1.6vw,21px)', lineHeight:1.8, color:'var(--vellum)', fontFamily:'"Cormorant Garamond", serif', fontWeight:400 }}>
+                  {line.trim()}
+                </span>
+              ))}
+            </div>
+          )
+        })}
+        {sIdx < sections.length - 1 && (
+          <div style={{ textAlign:'center', color:'var(--gold)', opacity:.5, margin:'3rem 0', letterSpacing:'.5em', fontSize:18 }}>* * *</div>
+        )}
       </div>
     )
-  }
-  
-  // Parse poem content into sections and stanzas
-  const parseContent = (content) => {
-    if (!content) return []
-    
-    // Split by section breaks (various formats)
-    const sections = content.split(/---SECTION_BREAK---|─{3,}|═{3,}|\n\s*\*\s*\*\s*\*\s*\n/)
-    
-    return sections.map(section => {
-      // Split by stanza breaks (various formats) and clean up
-      const stanzas = section
-        .split(/---STANZA_BREAK---|\n{3,}/)
-        .map(s => s.trim())
-        .filter(s => s && !s.match(/^[-─═*\s]+$/)) // Remove empty or decoration-only blocks
-      return stanzas
-    }).filter(section => section.length > 0)
-  }
-  
-  const sections = parseContent(poem.content)
-  
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="min-h-screen"
-    >
-      {/* Progress bar - always visible at very top regardless of nav state */}
-      <div className="fixed top-0 left-0 right-0 h-0.5 bg-sanctum-gold/10 z-[60]">
-        <motion.div
-          className="h-full bg-gradient-to-r from-sanctum-burgundy to-sanctum-gold"
-          style={{ width: progressWidth }}
-        />
+  })
+}
+
+export default function PoemReader() {
+  const { poemId } = useParams()
+  const navigate = useNavigate()
+  const poem = poems.find(p => p.id === parseInt(poemId))
+  const [showNav, setShowNav] = useState(true)
+  const lastScroll = useRef(0)
+  const { scrollYProgress } = useScroll()
+  const progressWidth = useTransform(scrollYProgress, [0,1], ['0%','100%'])
+
+  useEffect(() => {
+    const onScroll = () => {
+      const y = window.scrollY
+      setShowNav(y < 80 || y < lastScroll.current)
+      lastScroll.current = y
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  if (!poem) return (
+    <div style={{ minHeight:'100vh', display:'grid', placeItems:'center', background:'var(--ink)', color:'var(--vellum)', fontFamily:'Cinzel' }}>
+      <div style={{ textAlign:'center' }}>
+        <div style={{ fontSize:64, color:'var(--gold)', marginBottom:24 }}>ॐ</div>
+        <div>Poem not found</div>
+        <Link to="/mahabharata/poems" style={{ display:'block', marginTop:20, color:'var(--gold)' }}>← Return to Library</Link>
       </div>
-      
-      {/* Top navigation bar */}
+    </div>
+  )
+
+  const prevPoem = poems.find(p => p.id === poem.id - 1 && p.status === 'complete')
+  const nextPoem = poems.find(p => p.id === poem.id + 1 && p.status === 'complete')
+
+  return (
+    <div style={{ background:'var(--ink)', minHeight:'100vh' }}>
+
+      {/* Progress bar */}
+      <div style={{ position:'fixed', top:0, left:0, right:0, height:2, background:'rgba(228,176,74,.1)', zIndex:60, pointerEvents:'none' }}>
+        <motion.div style={{ height:'100%', background:'linear-gradient(to right, var(--sindoor), var(--gold), var(--gold-lit))', width:progressWidth, boxShadow:'0 0 12px var(--gold)' }}/>
+      </div>
+
+      {/* Top nav */}
       <AnimatePresence>
         {showNav && (
-          <motion.div
-            initial={{ y: -80, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: -80, opacity: 0 }}
-            transition={{ duration: 0.3, ease: 'easeOut' }}
-            className="fixed top-0 left-0 right-0 z-40 bg-sanctum-black/90 backdrop-blur-md border-b border-sanctum-gold/10"
-          >
-            <div className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between gap-6">
-              
-              {/* Left — Om logo home link */}
-              <Link to="/" className="flex items-center gap-2.5 shrink-0 group">
-                <svg width="22" height="22" viewBox="0 0 100 100" className="text-sanctum-gold" fill="currentColor">
-                  <text y="78" fontSize="80" fontFamily="serif">ॐ</text>
-                </svg>
-              </Link>
-
-              {/* Centre — current poem identifier */}
-              <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1 justify-center">
-                <span className="font-display text-sanctum-gold text-xs sm:text-sm shrink-0 opacity-70">
-                  {poem.number}
-                </span>
-                <div className="w-px h-3.5 bg-sanctum-gold/25 shrink-0" />
-                <span className="font-display text-sanctum-cream/75 text-xs sm:text-sm truncate">
-                  {poem.title}
-                </span>
-              </div>
-
-              {/* Right — site nav links */}
-              <div className="hidden md:flex items-center gap-6 shrink-0">
-                <Link to="/" className="font-sans text-xs tracking-widest uppercase text-sanctum-cream/50 hover:text-sanctum-gold transition-colors">
-                  Home
-                </Link>
-                <Link to="/mahabharata" className="font-sans text-xs tracking-widest uppercase text-sanctum-cream/50 hover:text-sanctum-gold transition-colors">
-                  Mahabharata
-                </Link>
-                <Link to="/mahabharata/poems" className="font-sans text-xs tracking-widest uppercase text-sanctum-cream/50 hover:text-sanctum-gold transition-colors">
-                  All Poems
-                </Link>
-              </div>
-
-              {/* Mobile — just the list icon */}
-              <Link to="/mahabharata/poems" className="md:hidden text-sanctum-cream/50 hover:text-sanctum-gold transition-colors shrink-0">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M4 6h16M4 12h16M4 18h7" />
-                </svg>
-              </Link>
-
+          <motion.nav initial={{y:-70,opacity:0}} animate={{y:0,opacity:1}} exit={{y:-70,opacity:0}} transition={{duration:.3}}
+            style={{
+              position:'fixed',top:0,left:0,right:0,zIndex:50,
+              display:'flex',alignItems:'center',justifyContent:'space-between',
+              padding:'0 44px',height:56,
+              background:'rgba(10,8,6,.92)',backdropFilter:'blur(6px)',
+              borderBottom:'1px solid rgba(228,176,74,.1)',
+            }}>
+            <Link to="/" style={{ display:'flex', alignItems:'center', gap:12, textDecoration:'none', color:'inherit', flexShrink:0 }}>
+              <div style={{ width:26, height:26, border:'1px solid var(--gold)', borderRadius:'50%', display:'grid', placeItems:'center', color:'var(--gold)', fontFamily:'Cinzel', fontSize:12 }}>ॐ</div>
+            </Link>
+            <div style={{ display:'flex', alignItems:'center', gap:12, minWidth:0, flex:1, justifyContent:'center' }}>
+              <span style={{ fontFamily:'Cinzel', color:'var(--gold)', fontSize:13, flexShrink:0, opacity:.7 }}>{poem.number}</span>
+              <div style={{ width:1, height:14, background:'rgba(228,176,74,.25)', flexShrink:0 }}/>
+              <span style={{ fontFamily:'"Cormorant Garamond"', color:'var(--vellum-dim)', fontSize:15, overflow:'hidden', textOverflow:'ellipsis', whiteSpace:'nowrap' }}>{poem.title}</span>
             </div>
-          </motion.div>
+            <div style={{ display:'flex', gap:24, flexShrink:0 }}>
+              {[{to:'/',l:'Home'},{to:'/mahabharata',l:'Mahābhārata'},{to:'/mahabharata/poems',l:'All Poems'}].map(lk=>(
+                <Link key={lk.to} to={lk.to} style={{ fontFamily:'"JetBrains Mono",monospace', fontSize:10, letterSpacing:'.18em', textTransform:'uppercase', color:'var(--vellum-mute)', textDecoration:'none', transition:'color .3s' }}
+                  onMouseEnter={e=>e.target.style.color='var(--gold)'} onMouseLeave={e=>e.target.style.color='var(--vellum-mute)'}
+                  className="hidden md:block">{lk.l}</Link>
+              ))}
+            </div>
+          </motion.nav>
         )}
       </AnimatePresence>
-      
-      {/* Hero header */}
-      <header className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
-        {/* Background decoration */}
-        <div className="absolute inset-0">
-          <motion.div
-            className="absolute top-1/4 left-1/4 text-sanctum-gold/5"
-            animate={{ rotate: 360 }}
-            transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-          >
-            <ChariotWheel size={200} />
-          </motion.div>
-          <motion.div
-            className="absolute bottom-1/4 right-1/4 text-sanctum-gold/5"
-            animate={{ y: [0, 20, 0] }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <Lotus size={150} />
-          </motion.div>
-        </div>
-        
-        <div className="absolute inset-0 bg-gradient-to-b from-sanctum-black via-transparent to-sanctum-black" />
-        
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="relative z-10 text-center px-6 max-w-4xl"
-        >
-          {/* Part indicator */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="text-sanctum-cream/40 text-sm tracking-widest uppercase mb-4"
-          >
-            Part {poem.part} · Poem {poem.number}
-          </motion.p>
-          
-          {/* Title */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-sanctum-cream"
-          >
+
+      {/* Hero */}
+      <header style={{
+        position:'relative', minHeight:'55vh', display:'grid', placeItems:'center', overflow:'hidden', paddingTop:56,
+        background:`radial-gradient(60% 50% at 50% 55%, rgba(228,176,74,.15) 0%, rgba(228,176,74,.04) 45%, transparent 75%),
+          radial-gradient(40% 50% at 80% 20%, rgba(192,53,42,.1), transparent 60%), var(--ink)`,
+      }}>
+        <div style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse at center, transparent 30%, var(--ink) 90%)', pointerEvents:'none' }}/>
+        <div style={{ position:'relative', zIndex:2, textAlign:'center', padding:'0 44px', maxWidth:900 }}>
+          <div style={{ fontFamily:'"JetBrains Mono",monospace', fontSize:11, letterSpacing:'.4em', textTransform:'uppercase', color:'var(--gold)', marginBottom:16, opacity:.7 }}>
+            Poem {poem.number} · Part {poem.part}
+          </div>
+          <h1 style={{ fontFamily:'Cinzel', fontWeight:500, fontSize:'clamp(36px,6vw,80px)', lineHeight:1.05, letterSpacing:'.02em', color:'var(--vellum)', marginBottom:16 }}>
             {poem.title}
-          </motion.h1>
-          
-          {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="mt-4 font-display text-base sm:text-xl md:text-2xl text-sanctum-gold/80 italic"
-          >
-            {poem.fullSubtitle || poem.subtitle}
-          </motion.p>
-          
-          {/* Ornament */}
-          <motion.div
-            initial={{ opacity: 0, scaleX: 0 }}
-            animate={{ opacity: 1, scaleX: 1 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-            className="flex justify-center mt-8"
-          >
-            <BorderOrnament className="text-sanctum-gold/50" width={200} />
-          </motion.div>
-          
-          {/* Meta info */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
-            className="mt-6 flex justify-center gap-8 text-sanctum-cream/40 text-sm"
-          >
-            <span>{poem.stanzaCount} stanzas</span>
-            <span>•</span>
-            <span>Ottava Rima</span>
-          </motion.div>
-        </motion.div>
-        
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        >
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="text-sanctum-gold/30"
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M12 5v14M5 12l7 7 7-7" />
-            </svg>
-          </motion.div>
-        </motion.div>
-      </header>
-      
-      {/* Poem content */}
-      <main ref={contentRef} className="relative px-4 sm:px-6 py-10 sm:py-16">
-        <div className="max-w-3xl mx-auto">
-          {sections.map((stanzas, sectionIndex) => (
-            <div key={sectionIndex}>
-              {stanzas.map((stanza, stanzaIndex) => (
-                <StanzaBlock 
-                  key={`${sectionIndex}-${stanzaIndex}`}
-                  stanza={stanza}
-                  index={sectionIndex * 100 + stanzaIndex}
-                />
-              ))}
-              
-              {/* Section break ornament */}
-              {sectionIndex < sections.length - 1 && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  className="my-16 flex justify-center"
-                >
-                  <div className="section-break">
-                    <span>✦</span>
-                    <span>✦</span>
-                    <span>✦</span>
-                  </div>
-                </motion.div>
-              )}
+          </h1>
+          {poem.subtitle && (
+            <div style={{ fontFamily:'"Cormorant Garamond"', fontStyle:'italic', fontWeight:300, color:'var(--gold-lit)', fontSize:'clamp(16px,2vw,24px)' }}>
+              {poem.subtitle}
             </div>
-          ))}
+          )}
+          {poem.fullSubtitle && (
+            <div style={{ marginTop:8, fontFamily:'"JetBrains Mono",monospace', fontSize:11, letterSpacing:'.2em', textTransform:'uppercase', color:'var(--vellum-mute)' }}>
+              {poem.fullSubtitle}
+            </div>
+          )}
+          <div style={{ marginTop:24, width:1, height:60, background:'linear-gradient(to bottom, transparent, var(--gold))', margin:'24px auto 0', animation:'drop 2.4s ease-in-out infinite' }}/>
+        </div>
+      </header>
+
+      {/* Poem content */}
+      <main style={{ padding:'80px 44px 120px', maxWidth:860, margin:'0 auto' }}>
+        <div style={{ marginBottom:60, paddingBottom:40, borderBottom:'1px solid rgba(228,176,74,.15)', display:'flex', gap:40 }}>
+          <div>
+            <div style={{ fontFamily:'"JetBrains Mono",monospace', fontSize:10, letterSpacing:'.25em', textTransform:'uppercase', color:'var(--vellum-mute)', marginBottom:6 }}>Stanzas</div>
+            <div style={{ fontFamily:'Cinzel', fontSize:22, color:'var(--gold)' }}>{poem.stanzaCount || '—'}</div>
+          </div>
+          <div>
+            <div style={{ fontFamily:'"JetBrains Mono",monospace', fontSize:10, letterSpacing:'.25em', textTransform:'uppercase', color:'var(--vellum-mute)', marginBottom:6 }}>Form</div>
+            <div style={{ fontFamily:'"Cormorant Garamond"', fontStyle:'italic', color:'var(--vellum-dim)', fontSize:16 }}>Ottava Rima</div>
+          </div>
+          <div>
+            <div style={{ fontFamily:'"JetBrains Mono",monospace', fontSize:10, letterSpacing:'.25em', textTransform:'uppercase', color:'var(--vellum-mute)', marginBottom:6 }}>Part</div>
+            <div style={{ fontFamily:'Cinzel', fontSize:22, color:'var(--gold)' }}>{poem.part}</div>
+          </div>
+        </div>
+
+        {poem.content && renderPoem(poem.content)}
+
+        {/* End ornament */}
+        <div style={{ textAlign:'center', marginTop:60, paddingTop:40, borderTop:'1px solid rgba(228,176,74,.15)' }}>
+          <div style={{ fontFamily:'"JetBrains Mono",monospace', fontSize:10, letterSpacing:'.4em', textTransform:'uppercase', color:'var(--gold)', marginBottom:12, opacity:.6 }}>Canto Complete</div>
+          <div style={{ fontFamily:'Cinzel', fontSize:32, color:'var(--gold)' }}>ॐ</div>
+          <div style={{ marginTop:12, fontFamily:'"JetBrains Mono",monospace', fontSize:10, letterSpacing:'.3em', textTransform:'uppercase', color:'var(--vellum-mute)' }}>
+            ───────────── ॐ ─────────────
+          </div>
         </div>
       </main>
-      
-      {/* Navigation footer */}
-      <footer className="px-4 sm:px-6 py-10 sm:py-16 border-t border-sanctum-gold/10">
-        <div className="max-w-4xl mx-auto">
-          {/* End ornament */}
-          <div className="flex justify-center mb-12">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="text-sanctum-gold/50"
-            >
-              <OmSymbol size={50} />
-            </motion.div>
-          </div>
-          
-          {/* Prev/Next navigation */}
-          <div className="flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-4">
-            {prevPoem ? (
-              <Link 
-                to={`/mahabharata/poem/${prevPoem.id}`}
-                className="group flex-1"
-              >
-                <motion.div
-                  whileHover={{ x: -5 }}
-                  className="p-6 bg-sanctum-darker/50 border border-sanctum-gold/10 rounded-lg hover:border-sanctum-gold/30 transition-colors"
-                >
-                  <span className="text-sanctum-cream/40 text-sm">← Previous</span>
-                  <h3 className="mt-2 font-display text-lg text-sanctum-cream group-hover:text-sanctum-gold transition-colors">
-                    {prevPoem.title}
-                  </h3>
-                </motion.div>
-              </Link>
-            ) : (
-              <div className="flex-1" />
-            )}
-            
-            <Link 
-              to="/mahabharata/poems"
-              className="px-6 py-3 text-sanctum-gold/70 hover:text-sanctum-gold transition-colors"
-            >
-              All Poems
+
+      {/* Prev / Next */}
+      <footer style={{ padding:'60px 44px 80px', borderTop:'1px solid rgba(228,176,74,.1)', background:'var(--ink-2)' }}>
+        <div style={{ maxWidth:860, margin:'0 auto', display:'flex', justifyContent:'space-between', gap:24 }}>
+          {prevPoem ? (
+            <Link to={`/mahabharata/poem/${prevPoem.id}`} style={{ flex:1, border:'1px solid rgba(228,176,74,.2)', padding:'28px 32px', textDecoration:'none', color:'inherit', transition:'all .4s', display:'block' }}
+              onMouseEnter={e=>e.currentTarget.style.borderColor='var(--gold)'} onMouseLeave={e=>e.currentTarget.style.borderColor='rgba(228,176,74,.2)'}>
+              <div style={{ fontFamily:'"JetBrains Mono",monospace', fontSize:10, letterSpacing:'.22em', textTransform:'uppercase', color:'var(--vellum-mute)', marginBottom:12 }}>← Previous</div>
+              <div style={{ fontFamily:'Cinzel', fontSize:13, color:'var(--gold)', marginBottom:6 }}>{prevPoem.number}</div>
+              <div style={{ fontFamily:'"Cormorant Garamond"', fontWeight:500, fontSize:20, color:'var(--vellum)' }}>{prevPoem.title}</div>
             </Link>
-            
-            {nextPoem ? (
-              <Link 
-                to={`/mahabharata/poem/${nextPoem.id}`}
-                className="group flex-1 text-right"
-              >
-                <motion.div
-                  whileHover={{ x: 5 }}
-                  className="p-6 bg-sanctum-darker/50 border border-sanctum-gold/10 rounded-lg hover:border-sanctum-gold/30 transition-colors"
-                >
-                  <span className="text-sanctum-cream/40 text-sm">Next →</span>
-                  <h3 className="mt-2 font-display text-lg text-sanctum-cream group-hover:text-sanctum-gold transition-colors">
-                    {nextPoem.title}
-                  </h3>
-                </motion.div>
-              </Link>
-            ) : (
-              <div className="flex-1" />
-            )}
-          </div>
+          ) : <div style={{ flex:1 }}/>}
+
+          <Link to="/mahabharata/poems" style={{ display:'flex', alignItems:'center', justifyContent:'center', width:56, border:'1px solid rgba(228,176,74,.2)', color:'var(--gold)', fontFamily:'Cinzel', fontSize:20, textDecoration:'none', flexShrink:0, transition:'all .4s' }}
+            onMouseEnter={e=>{e.currentTarget.style.borderColor='var(--gold)';e.currentTarget.style.background='rgba(228,176,74,.05)'}}
+            onMouseLeave={e=>{e.currentTarget.style.borderColor='rgba(228,176,74,.2)';e.currentTarget.style.background=''}}>
+            ⊞
+          </Link>
+
+          {nextPoem ? (
+            <Link to={`/mahabharata/poem/${nextPoem.id}`} style={{ flex:1, border:'1px solid rgba(228,176,74,.2)', padding:'28px 32px', textDecoration:'none', color:'inherit', transition:'all .4s', display:'block', textAlign:'right' }}
+              onMouseEnter={e=>e.currentTarget.style.borderColor='var(--gold)'} onMouseLeave={e=>e.currentTarget.style.borderColor='rgba(228,176,74,.2)'}>
+              <div style={{ fontFamily:'"JetBrains Mono",monospace', fontSize:10, letterSpacing:'.22em', textTransform:'uppercase', color:'var(--vellum-mute)', marginBottom:12 }}>Next →</div>
+              <div style={{ fontFamily:'Cinzel', fontSize:13, color:'var(--gold)', marginBottom:6 }}>{nextPoem.number}</div>
+              <div style={{ fontFamily:'"Cormorant Garamond"', fontWeight:500, fontSize:20, color:'var(--vellum)' }}>{nextPoem.title}</div>
+            </Link>
+          ) : <div style={{ flex:1 }}/>}
         </div>
       </footer>
-    </motion.div>
+    </div>
   )
 }
-
-// Stanza block with reveal animation
-const StanzaBlock = ({ stanza, index }) => {
-  const ref = useRef(null)
-  
-  // Parse stanza into lines
-  const lines = stanza.split('\n').filter(line => line.trim())
-  
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.6, delay: 0.1 }}
-      className="stanza"
-    >
-      {lines.map((line, lineIndex) => (
-        <motion.span
-          key={lineIndex}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: lineIndex * 0.05 }}
-          className="stanza-line text-base sm:text-lg md:text-xl text-sanctum-cream/90 leading-relaxed"
-          dangerouslySetInnerHTML={{ 
-            __html: formatLine(line) 
-          }}
-        />
-      ))}
-    </motion.div>
-  )
-}
-
-// Format line with special styling for emphasized text
-const formatLine = (line) => {
-  // Handle **bold** text
-  let formatted = line.replace(
-    /\*\*(.*?)\*\*/g, 
-    '<strong class="text-sanctum-gold font-semibold">$1</strong>'
-  )
-  
-  // Handle *italic* text
-  formatted = formatted.replace(
-    /\*(.*?)\*/g,
-    '<em class="text-sanctum-cream">$1</em>'
-  )
-  
-  return formatted
-}
-
-export default PoemReader
