@@ -134,7 +134,7 @@ export default function MahabharataLanding() {
           <p className="reveal" style={{margin:'32px auto 0',maxWidth:640,fontSize:19,lineHeight:1.65,color:'var(--vellum-dim)',fontStyle:'italic',fontWeight:300}}>
             "Forty poems spanning the complete saga of the Bharata dynasty, from cosmic origins to divine ascension."
           </p>
-          <div className="reveal" style={{marginTop:44,display:'flex',justifyContent:'center',gap:60,flexWrap:'wrap'}}>
+          <div className="reveal" style={{marginTop:44,display:'flex',justifyContent:'center',gap:'clamp(24px,5vw,60px)',flexWrap:'wrap'}}>
             {[{num:40,lbl:'Poems'},{num:'VII',lbl:'Parts'},{num:completed,lbl:'Complete'}].map((s,i)=>(
               <div key={i} style={{textAlign:'center'}}>
                 <div style={{fontFamily:'Cinzel',fontSize:48,color:'var(--gold)',letterSpacing:'.04em',lineHeight:1}}>{s.num}</div>
@@ -153,7 +153,7 @@ export default function MahabharataLanding() {
       </header>
 
       {/* ── INVOCATION ── */}
-      <section style={{padding:'180px 44px',background:'linear-gradient(to bottom, var(--ink), var(--ink-2))',position:'relative',overflow:'hidden'}}>
+      <section style={{padding:'clamp(80px,12vw,180px) clamp(20px,4vw,44px)',background:'linear-gradient(to bottom, var(--ink), var(--ink-2))',position:'relative',overflow:'hidden'}}>
         <div style={{position:'absolute',top:'50%',left:'50%',transform:'translate(-50%,-50%)',width:900,height:900,border:'1px solid var(--gold)',borderRadius:'50%',opacity:.06,pointerEvents:'none'}}/>
         <div style={{position:'absolute',top:'50%',left:'50%',transform:'translate(-50%,-50%)',width:600,height:600,border:'1px dashed var(--gold)',borderRadius:'50%',opacity:.08,pointerEvents:'none'}}/>
         <div className="reveal" style={{maxWidth:980,margin:'0 auto',textAlign:'center',position:'relative'}}>
@@ -168,13 +168,13 @@ export default function MahabharataLanding() {
       </section>
 
       {/* ── SEVEN PARTS ── */}
-      <section id="parts" style={{padding:'180px 44px 160px',background:'var(--ink-2)',position:'relative',overflow:'hidden'}}>
-        <div className="reveal" style={{maxWidth:1200,margin:'0 auto 90px',display:'grid',gridTemplateColumns:'1fr auto',gap:30,alignItems:'end'}}>
+      <section id="parts" style={{padding:'clamp(80px,12vw,180px) clamp(20px,4vw,44px) clamp(60px,10vw,160px)',background:'var(--ink-2)',position:'relative',overflow:'hidden'}}>
+        <div className="reveal" style={{maxWidth:1200,margin:'0 auto 40px',display:'grid',gridTemplateColumns:'1fr',gap:16,alignItems:'end'}}>
           <h2 style={{fontFamily:'Cinzel',fontWeight:500,fontSize:'clamp(40px,5vw,82px)',lineHeight:1,letterSpacing:'.03em',color:'var(--vellum)'}}>
             The Seven<br/>Parts of the Epic
             <em style={{fontFamily:'"Cormorant Garamond"',fontWeight:300,fontStyle:'italic',color:'var(--gold)',fontSize:'.55em',display:'block',marginTop:12,letterSpacing:'.04em'}}>Sapta-Parvāṇi</em>
           </h2>
-          <div style={{color:'var(--vellum-mute)',maxWidth:320,textAlign:'right',lineHeight:1.7}}>
+          <div style={{color:'var(--vellum-mute)',maxWidth:320,textAlign:'left',lineHeight:1.7}}>
             <span className="mono" style={{color:'var(--gold)',display:'block',marginBottom:10}}>II · Architecture</span>
             Forty poems, arranged as seven movements — from the cosmic churning to the final ascent of the five brothers and their faithful hound.
           </div>
@@ -188,14 +188,14 @@ export default function MahabharataLanding() {
 
           {PARTS.map((p,i) => (
             <Link key={p.num} to={`/mahabharata/poems?part=${p.num}`} className="reveal" style={{
-              display:'grid',gridTemplateColumns:'120px 1fr 1.2fr 180px 60px',gap:32,alignItems:'center',
+              display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(200px,1fr))',gap:16,alignItems:'center',
               padding:'44px 0 44px 24px',borderBottom:'1px solid rgba(228,176,74,.14)',
               position:'relative',textDecoration:'none',color:'inherit',transition:'all .5s',
             }}
             onMouseEnter={e=>{e.currentTarget.style.background='linear-gradient(to right, rgba(228,176,74,.06), transparent 70%)'}}
             onMouseLeave={e=>{e.currentTarget.style.background=''}}>
               <span style={{position:'absolute',left:60,top:'50%',transform:'translate(-50%,-50%)',width:12,height:12,background:'var(--ink-2)',border:'1px solid var(--gold)',borderRadius:'50%',zIndex:2}}/>
-              <div style={{fontFamily:'Cinzel',fontSize:52,color:'var(--gold)',letterSpacing:'.04em',paddingLeft:60}}>{p.num}</div>
+              <div style={{fontFamily:'Cinzel',fontSize:52,color:'var(--gold)',letterSpacing:'.04em',paddingLeft:'clamp(20px,5vw,60px)'}}>{p.num}</div>
               <div style={{fontFamily:'"Cormorant Garamond"',fontWeight:500,fontSize:32,color:'var(--vellum)',lineHeight:1.1}}>{p.title}</div>
               <div style={{color:'var(--vellum-mute)',lineHeight:1.55,fontSize:16}}>{p.desc}</div>
               <div style={{color:'var(--vellum-dim)',fontFamily:'"JetBrains Mono",monospace',fontSize:11,letterSpacing:'.2em',textTransform:'uppercase',textAlign:'right'}}>
@@ -209,10 +209,10 @@ export default function MahabharataLanding() {
       </section>
 
       {/* ── FEATURED ── */}
-      <section style={{padding:'180px 44px',background:'var(--ink)',position:'relative',overflow:'hidden'}}>
+      <section style={{padding:'clamp(80px,12vw,180px) clamp(20px,4vw,44px)',background:'var(--ink)',position:'relative',overflow:'hidden'}}>
         <div style={{position:'absolute',left:-200,top:-200,width:700,height:700,borderRadius:'50%',background:'radial-gradient(circle at center, rgba(192,53,42,.18), transparent 65%)',pointerEvents:'none'}}/>
         <div style={{position:'absolute',right:-300,bottom:-300,width:900,height:900,borderRadius:'50%',background:'radial-gradient(circle at center, rgba(228,176,74,.1), transparent 70%)',pointerEvents:'none'}}/>
-        <div style={{maxWidth:1280,margin:'0 auto',position:'relative',display:'grid',gridTemplateColumns:'1fr 1.1fr',gap:90,alignItems:'start'}}>
+        <div style={{maxWidth:1280,margin:'0 auto',position:'relative',display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(min(100%,400px),1fr))',gap:'clamp(30px,6vw,90px)',alignItems:'start'}}>
           {/* Crest */}
           <div className="reveal-left" style={{width:'100%',aspectRatio:'3/4',border:'1px solid rgba(228,176,74,.3)',position:'relative',background:'linear-gradient(135deg, rgba(228,176,74,.03), transparent 50%, rgba(192,53,42,.04))',overflow:'hidden'}}>
             {['tl','tr','bl','br'].map(c=>(
@@ -271,7 +271,7 @@ export default function MahabharataLanding() {
       </div>
 
       {/* ── FOOTER ── */}
-      <footer style={{maxWidth:1280,margin:'0 auto',padding:'40px 44px',borderTop:'1px solid rgba(228,176,74,.15)',display:'grid',gridTemplateColumns:'1fr auto 1fr',gap:30,alignItems:'center',color:'var(--vellum-mute)',fontSize:13}}>
+      <footer style={{maxWidth:1280,margin:'0 auto',padding:'40px clamp(20px,4vw,44px)',borderTop:'1px solid rgba(228,176,74,.15)',display:'grid',gridTemplateColumns:'1fr',gap:16,alignItems:'center',color:'var(--vellum-mute)',fontSize:13}}>
         <div><Link to="/" style={{display:'inline-flex',alignItems:'center',gap:10,color:'var(--vellum-dim)',fontFamily:'"JetBrains Mono",monospace',fontSize:11,letterSpacing:'.22em',textTransform:'uppercase',textDecoration:'none'}}>← Back to The Verse Sanctum</Link></div>
         <div style={{textAlign:'center',color:'var(--gold)',fontFamily:'Cinzel',letterSpacing:'.3em',textTransform:'uppercase',fontSize:11}}>Mahābhārata</div>
         <div style={{textAlign:'right'}}><a href="#top" style={{color:'var(--gold)',fontFamily:'"JetBrains Mono",monospace',fontSize:11,letterSpacing:'.2em',textTransform:'uppercase',textDecoration:'none'}}>Return to the top ↑</a></div>
