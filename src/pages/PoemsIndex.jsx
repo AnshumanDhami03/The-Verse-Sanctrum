@@ -59,7 +59,7 @@ export default function PoemsIndex() {
 
       {/* ── PAGE HERO ── */}
       <header id="top" style={{
-        position:'relative', padding:'180px 44px 80px', overflow:'hidden',
+        position:'relative', padding:'clamp(100px,14vw,180px) clamp(20px,4vw,44px) clamp(40px,6vw,80px)', overflow:'hidden',
         background:`radial-gradient(50% 60% at 80% 30%, rgba(228,176,74,.1), transparent 60%),
           radial-gradient(45% 55% at 10% 70%, rgba(192,53,42,.08), transparent 65%), var(--ink)`,
       }}>
@@ -75,7 +75,7 @@ export default function PoemsIndex() {
 
         <div style={{maxWidth:1280,margin:'0 auto',position:'relative',zIndex:2}}>
           {/* Breadcrumb */}
-          <div className="reveal" style={{display:'flex',alignItems:'center',gap:12,marginBottom:60,fontFamily:'"JetBrains Mono",monospace',fontSize:11,letterSpacing:'.22em',textTransform:'uppercase',color:'var(--vellum-mute)'}}>
+          <div className="reveal" style={{display:'flex',alignItems:'center',gap:8,marginBottom:40,flexWrap:'wrap',fontFamily:'"JetBrains Mono",monospace',fontSize:11,letterSpacing:'.22em',textTransform:'uppercase',color:'var(--vellum-mute)'}}>
             <Link to="/" style={{color:'var(--vellum-dim)',textDecoration:'none',transition:'color .3s'}} onMouseEnter={e=>e.target.style.color='var(--gold)'} onMouseLeave={e=>e.target.style.color='var(--vellum-dim)'}>The Verse Sanctum</Link>
             <span style={{color:'var(--gold-deep)'}}>/</span>
             <Link to="/mahabharata" style={{color:'var(--vellum-dim)',textDecoration:'none',transition:'color .3s'}} onMouseEnter={e=>e.target.style.color='var(--gold)'} onMouseLeave={e=>e.target.style.color='var(--vellum-dim)'}>Mahābhārata</Link>
@@ -83,14 +83,14 @@ export default function PoemsIndex() {
             <span style={{color:'var(--gold)'}}>Poems</span>
           </div>
 
-          <div style={{display:'grid',gridTemplateColumns:'1fr auto',gap:60,alignItems:'end'}}>
+          <div style={{display:'grid',gridTemplateColumns:'1fr',gap:20,alignItems:'end'}}>
             <div>
               <h1 className="reveal" style={{fontFamily:'Cinzel',fontWeight:500,fontSize:'clamp(56px,9vw,150px)',lineHeight:.95,letterSpacing:'.04em'}}>
                 <span style={{background:'linear-gradient(180deg, var(--vellum) 0%, var(--gold-lit) 55%, var(--gold-deep) 100%)',WebkitBackgroundClip:'text',backgroundClip:'text',color:'transparent'}}>Poems</span>
                 <em style={{fontFamily:'"Cormorant Garamond"',fontWeight:300,fontStyle:'italic',fontSize:'.4em',color:'var(--gold)',letterSpacing:'.06em',display:'block',marginTop:18}}>The Mahābhārata in Verse</em>
               </h1>
             </div>
-            <div className="reveal" style={{display:'flex',gap:40,paddingBottom:12}}>
+            <div className="reveal" style={{display:'flex',gap:24,paddingBottom:12,flexWrap:'wrap'}}>
               {[{n:40,l:'Poems'},{n:mahabharataInfo.parts.length,l:'Parts'},{n:poems.filter(p=>p.status==='complete').length,l:'Complete'}].map((s,i)=>(
                 <div key={i} style={{textAlign:'right'}}>
                   <div style={{fontFamily:'Cinzel',fontSize:44,color:'var(--gold)',lineHeight:1,letterSpacing:'.02em'}}>{s.n}</div>
@@ -111,9 +111,9 @@ export default function PoemsIndex() {
         position:'sticky',top:0,zIndex:30,
         background:'rgba(10,8,6,.92)',backdropFilter:'blur(14px)',
         borderTop:'1px solid rgba(228,176,74,.14)',borderBottom:'1px solid rgba(228,176,74,.14)',
-        padding:'22px 44px',
+        padding:'14px clamp(16px,4vw,44px)',
       }}>
-        <div style={{maxWidth:1280,margin:'0 auto',display:'flex',alignItems:'center',gap:20,flexWrap:'wrap'}}>
+        <div style={{maxWidth:1280,margin:'0 auto',display:'flex',alignItems:'center',gap:12,flexWrap:'wrap'}}>
           <span style={{fontFamily:'"JetBrains Mono",monospace',fontSize:10,letterSpacing:'.28em',textTransform:'uppercase',color:'var(--vellum-mute)'}}>Filter</span>
           {/* Part chips */}
           <div style={{display:'flex',gap:8,flexWrap:'wrap'}}>
@@ -151,7 +151,7 @@ export default function PoemsIndex() {
       </div>
 
       {/* ── LIBRARY ── */}
-      <section style={{padding:'80px 44px 140px',background:'var(--ink)',minHeight:'80vh'}}>
+      <section style={{padding:'clamp(40px,6vw,80px) clamp(16px,4vw,44px) clamp(80px,10vw,140px)',background:'var(--ink)',minHeight:'80vh'}}>
         <div style={{maxWidth:1280,margin:'0 auto'}}>
           {/* Count */}
           <div style={{display:'flex',justifyContent:'space-between',alignItems:'baseline',color:'var(--vellum-mute)',fontFamily:'"JetBrains Mono",monospace',fontSize:11,letterSpacing:'.22em',textTransform:'uppercase',marginBottom:30}}>
@@ -164,7 +164,7 @@ export default function PoemsIndex() {
             {view === 'grid' && (
               <motion.div key={selectedPart + search}
                 initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} transition={{duration:.3}}
-                style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:24}}>
+                style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(min(100%,280px),1fr))',gap:20}}>
                 {filtered.map((poem,i) => {
                   const isComplete = poem.status === 'complete'
                   return (
@@ -213,7 +213,7 @@ export default function PoemsIndex() {
                       initial={{opacity:0,x:-20}} animate={{opacity:1,x:0}} transition={{delay:Math.min(i*.03,.3)}}
                       onClick={()=>isComplete&&navigate(`/mahabharata/poem/${poem.id}`)}
                       style={{
-                        display:'grid',gridTemplateColumns:'80px 1.5fr 2fr 160px 80px',gap:30,alignItems:'center',
+                        display:'grid',gridTemplateColumns:'60px 1fr',gap:16,alignItems:'center',
                         padding:'28px 10px',borderBottom:'1px solid rgba(228,176,74,.12)',
                         cursor:isComplete?'pointer':'default',transition:'all .4s',
                         opacity:isComplete?1:.45,
@@ -249,7 +249,7 @@ export default function PoemsIndex() {
       </div>
 
       {/* ── FOOTER ── */}
-      <footer style={{maxWidth:1280,margin:'0 auto',padding:'40px 44px',borderTop:'1px solid rgba(228,176,74,.15)',display:'grid',gridTemplateColumns:'1fr auto 1fr',gap:30,alignItems:'center',color:'var(--vellum-mute)',fontSize:13}}>
+      <footer style={{maxWidth:1280,margin:'0 auto',padding:'40px 44px',borderTop:'1px solid rgba(228,176,74,.15)',display:'grid',gridTemplateColumns:'1fr',gap:12,alignItems:'center',color:'var(--vellum-mute)',fontSize:13,textAlign:'center'}}>
         <div><Link to="/mahabharata" style={{display:'inline-flex',alignItems:'center',gap:10,color:'var(--vellum-dim)',fontFamily:'"JetBrains Mono",monospace',fontSize:11,letterSpacing:'.22em',textTransform:'uppercase',textDecoration:'none'}}>← Back to the Mahābhārata</Link></div>
         <div style={{textAlign:'center',color:'var(--gold)',fontFamily:'Cinzel',letterSpacing:'.3em',textTransform:'uppercase',fontSize:11}}>The Verse Sanctum · Library</div>
         <div style={{textAlign:'right'}}><a href="#top" style={{color:'var(--gold)',fontFamily:'"JetBrains Mono",monospace',fontSize:11,letterSpacing:'.2em',textTransform:'uppercase',textDecoration:'none'}}>Return to the top ↑</a></div>
