@@ -13,6 +13,7 @@ import Navbar from './components/Navbar'
 import CursorGlow from './components/CursorGlow'
 import MusicPlayer from './components/MusicPlayer'
 import LoadingScreen from './components/LoadingScreen'
+import ScrollToTop from './components/ScrollToTop'
 
 function AnimatedRoutes() {
   const location = useLocation()
@@ -34,10 +35,11 @@ function AppShell() {
   const isPoemReader = location.pathname.startsWith('/mahabharata/poem/')
 
   return (
-    <div className="min-h-screen bg-sanctum-black noise-overlay">
+    <div style={{ minHeight: '100vh', background: 'var(--ink)' }}>
+      <ScrollToTop />
+      <div className="scroll-progress"><div className="bar" id="scrollBar"/></div>
       <CursorGlow />
       {!isPoemReader && <Navbar />}
-      <MusicPlayer />
       <AnimatedRoutes />
     </div>
   )
