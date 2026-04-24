@@ -1,157 +1,87 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
-import { OmSymbol } from './Illustrations'
 
-const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+export default function Navbar() {
   const location = useLocation()
-  
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-    
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-  
-  // Close mobile menu on route change
-  useEffect(() => {
-    setIsMobileMenuOpen(false)
-  }, [location])
-  
-  const isHome = location.pathname === '/'
-  const isMahabharata = location.pathname.startsWith('/mahabharata')
   const isPoemReader = location.pathname.startsWith('/mahabharata/poem/')
-  
-  // On poem pages, the PoemReader has its own full nav — hide the global bar
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   if (isPoemReader) return null
-  
+
+  const links = [
+    { to: '/', label: 'Home' },
+    { to: '/mahabharata', label: 'The Mahābhārata' },
+    { to: '/mahabharata#parts', label: 'Parts' },
+    { to: '/mahabharata/poems', label: 'Poems' },
+  ]
+
   return (
-    <>
-      <motion.nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled 
-            ? 'bg-sanctum-black/90 backdrop-blur-md border-b border-sanctum-gold/10' 
-            : 'bg-transparent'
-        }`}
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
-          <div className="flex items-center justify-between">
-            {/* Logo */}
-            <Link to="/" className="flex items-center gap-3 group">
-              <motion.div
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.8 }}
-                className="text-sanctum-gold"
-              >
-                <OmSymbol size={32} />
-              </motion.div>
-              <span className="font-display text-base sm:text-xl text-sanctum-cream tracking-wider group-hover:text-sanctum-gold transition-colors hidden xs:block sm:block">
-                The Verse Sanctum
-              </span>
-            </Link>
-            
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-8">
-              <NavLink to="/" active={isHome}>Home</NavLink>
-              {isMahabharata && (
-                <>
-                  <NavLink to="/mahabharata" active={location.pathname === '/mahabharata'}>
-                    Mahabharata
-                  </NavLink>
-                  <NavLink to="/mahabharata/poems" active={location.pathname === '/mahabharata/poems'}>
-                    All Poems
-                  </NavLink>
-                </>
-              )}
-            </div>
-            
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden flex flex-col gap-1.5 p-2"
-            >
-              <motion.span
-                className="w-6 h-0.5 bg-sanctum-gold"
-                animate={{
-                  rotate: isMobileMenuOpen ? 45 : 0,
-                  y: isMobileMenuOpen ? 8 : 0,
-                }}
-              />
-              <motion.span
-                className="w-6 h-0.5 bg-sanctum-gold"
-                animate={{ opacity: isMobileMenuOpen ? 0 : 1 }}
-              />
-              <motion.span
-                className="w-6 h-0.5 bg-sanctum-gold"
-                animate={{
-                  rotate: isMobileMenuOpen ? -45 : 0,
-                  y: isMobileMenuOpen ? -8 : 0,
-                }}
-              />
-            </button>
-          </div>
+    <nav style={{
+      position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50,
+      display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+      padding: '22px 44px',
+      background: scrolled
+        ? 'rgba(10,8,6,0.92)'
+        : 'linear-gradient(to bottom, rgba(10,8,6,0.8), rgba(10,8,6,0))',
+      backdropFilter: 'blur(6px)',
+      transition: 'background 0.4s',
+    }}>
+      {/* Logo */}
+      <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: 14, textDecoration: 'none', color: 'inherit' }}>
+        <div style={{
+          width: 30, height: 30, border: '1px solid var(--gold)', borderRadius: '50%',
+          display: 'grid', placeItems: 'center', color: 'var(--gold)',
+          fontFamily: 'Cinzel', fontSize: 13, position: 'relative',
+        }}>
+          ॐ
+          <span style={{
+            position: 'absolute', inset: -5, border: '1px solid var(--gold)',
+            borderRadius: '50%', opacity: .3,
+          }} />
         </div>
-      </motion.nav>
-      
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-sanctum-black/95 backdrop-blur-lg pt-24 px-6 md:hidden"
-          >
-            <div className="flex flex-col gap-6">
-              <MobileNavLink to="/" onClick={() => setIsMobileMenuOpen(false)}>
-                Home
-              </MobileNavLink>
-              <MobileNavLink to="/mahabharata" onClick={() => setIsMobileMenuOpen(false)}>
-                Mahabharata
-              </MobileNavLink>
-              <MobileNavLink to="/mahabharata/poems" onClick={() => setIsMobileMenuOpen(false)}>
-                All Poems
-              </MobileNavLink>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
+        <span style={{ fontFamily: 'Cinzel', fontSize: 13, letterSpacing: '.22em', textTransform: 'uppercase' }}>
+          The Verse Sanctum
+        </span>
+      </Link>
+
+      {/* Desktop nav */}
+      <ul style={{ display: 'flex', gap: 34, listStyle: 'none', margin: 0, padding: 0 }}
+          className="hidden md:flex">
+        {links.map(l => (
+          <li key={l.to}>
+            <Link to={l.to} style={{
+              color: location.pathname === l.to ? 'var(--gold)' : 'var(--vellum-dim)',
+              fontFamily: '"JetBrains Mono", monospace',
+              fontSize: 11, letterSpacing: '.18em', textTransform: 'uppercase',
+              textDecoration: 'none', transition: 'color .3s',
+            }}
+            onMouseEnter={e => e.target.style.color = 'var(--gold)'}
+            onMouseLeave={e => e.target.style.color = location.pathname === l.to ? 'var(--gold)' : 'var(--vellum-dim)'}
+            >
+              {l.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+
+      {/* Side badge */}
+      <div style={{
+        display: 'flex', gap: 10, alignItems: 'center',
+        color: 'var(--vellum-dim)', fontFamily: '"JetBrains Mono",monospace',
+        fontSize: 11, letterSpacing: '.18em', textTransform: 'uppercase',
+      }} className="hidden md:flex">
+        <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--gold)', boxShadow: '0 0 8px var(--gold)', animation: 'pulseDot 2s ease-in-out infinite', display: 'inline-block' }} />
+        <span>Est. MMXXV</span>
+      </div>
+
+      {/* Mobile hamburger */}
+      <Link to="/mahabharata/poems" className="md:hidden" style={{ color: 'var(--vellum-dim)', fontSize: 22 }}>☰</Link>
+    </nav>
   )
 }
-
-const NavLink = ({ to, active, children }) => (
-  <Link
-    to={to}
-    className={`relative font-sans text-sm tracking-wider uppercase transition-colors ${
-      active ? 'text-sanctum-gold' : 'text-sanctum-cream/70 hover:text-sanctum-cream'
-    }`}
-  >
-    {children}
-    {active && (
-      <motion.div
-        layoutId="navbar-indicator"
-        className="absolute -bottom-1 left-0 right-0 h-0.5 bg-sanctum-gold"
-      />
-    )}
-  </Link>
-)
-
-const MobileNavLink = ({ to, onClick, children }) => (
-  <Link
-    to={to}
-    onClick={onClick}
-    className="font-display text-2xl text-sanctum-cream hover:text-sanctum-gold transition-colors"
-  >
-    {children}
-  </Link>
-)
-
-export default Navbar
