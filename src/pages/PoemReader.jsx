@@ -77,7 +77,7 @@ export default function PoemReader() {
             style={{
               position:'fixed',top:0,left:0,right:0,zIndex:50,
               display:'flex',alignItems:'center',justifyContent:'space-between',
-              padding:'0 44px',height:56,
+              padding:'0 clamp(16px,4vw,44px)',height:56,
               background:'rgba(10,8,6,.92)',backdropFilter:'blur(6px)',
               borderBottom:'1px solid rgba(228,176,74,.1)',
             }}>
@@ -107,7 +107,7 @@ export default function PoemReader() {
           radial-gradient(40% 50% at 80% 20%, rgba(192,53,42,.1), transparent 60%), var(--ink)`,
       }}>
         <div style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse at center, transparent 30%, var(--ink) 90%)', pointerEvents:'none' }}/>
-        <div style={{ position:'relative', zIndex:2, textAlign:'center', padding:'0 44px', maxWidth:900 }}>
+        <div style={{ position:'relative', zIndex:2, textAlign:'center', padding:'0 clamp(16px,4vw,44px)', maxWidth:900 }}>
           <div style={{ fontFamily:'"JetBrains Mono",monospace', fontSize:11, letterSpacing:'.4em', textTransform:'uppercase', color:'var(--gold)', marginBottom:16, opacity:.7 }}>
             Poem {poem.number} · Part {poem.part}
           </div>
@@ -129,8 +129,8 @@ export default function PoemReader() {
       </header>
 
       {/* Poem content */}
-      <main style={{ padding:'80px 44px 120px', maxWidth:860, margin:'0 auto' }}>
-        <div style={{ marginBottom:60, paddingBottom:40, borderBottom:'1px solid rgba(228,176,74,.15)', display:'flex', gap:40 }}>
+      <main style={{ padding:'clamp(40px,6vw,80px) clamp(16px,4vw,44px) clamp(60px,8vw,120px)', maxWidth:860, margin:'0 auto' }}>
+        <div style={{ marginBottom:40, paddingBottom:32, borderBottom:'1px solid rgba(228,176,74,.15)', display:'flex', gap:40 }}>
           <div>
             <div style={{ fontFamily:'"JetBrains Mono",monospace', fontSize:10, letterSpacing:'.25em', textTransform:'uppercase', color:'var(--vellum-mute)', marginBottom:6 }}>Stanzas</div>
             <div style={{ fontFamily:'Cinzel', fontSize:22, color:'var(--gold)' }}>{poem.stanzaCount || '—'}</div>
@@ -158,8 +158,8 @@ export default function PoemReader() {
       </main>
 
       {/* Prev / Next */}
-      <footer style={{ padding:'60px 44px 80px', borderTop:'1px solid rgba(228,176,74,.1)', background:'var(--ink-2)' }}>
-        <div style={{ maxWidth:860, margin:'0 auto', display:'flex', justifyContent:'space-between', gap:24 }}>
+      <footer style={{ padding:'clamp(40px,5vw,60px) clamp(16px,4vw,44px) clamp(50px,6vw,80px)', borderTop:'1px solid rgba(228,176,74,.1)', background:'var(--ink-2)' }}>
+        <div style={{ maxWidth:860, margin:'0 auto', display:'flex', justifyContent:'space-between', gap:16, flexWrap:'wrap' }}>
           {prevPoem ? (
             <Link to={`/mahabharata/poem/${prevPoem.id}`} style={{ flex:1, border:'1px solid rgba(228,176,74,.2)', padding:'28px 32px', textDecoration:'none', color:'inherit', transition:'all .4s', display:'block' }}
               onMouseEnter={e=>e.currentTarget.style.borderColor='var(--gold)'} onMouseLeave={e=>e.currentTarget.style.borderColor='rgba(228,176,74,.2)'}>
