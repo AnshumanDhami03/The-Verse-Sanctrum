@@ -102,8 +102,8 @@ export default function Home() {
           var(--ink)`,
       }}>
         {/* Side banners */}
-        <div style={{ position:'absolute', top:'50%', left:30, whiteSpace:'nowrap', zIndex:2, color:'var(--gold)', opacity:.18, fontFamily:'Cinzel', fontSize:14, letterSpacing:'1em', textTransform:'uppercase', pointerEvents:'none', transform:'translateY(-50%) rotate(-90deg)' }}>॥ Vyāsa · Ganesha · Sauti ॥</div>
-        <div style={{ position:'absolute', top:'50%', right:30, whiteSpace:'nowrap', zIndex:2, color:'var(--gold)', opacity:.18, fontFamily:'Cinzel', fontSize:14, letterSpacing:'1em', textTransform:'uppercase', pointerEvents:'none', transform:'translateY(-50%) rotate(90deg)' }}>॥ Mahābhārata · 1.00.000 · Śloka ॥</div>
+        <div className="side-banner" style={{ position:'absolute', top:'50%', left:30, whiteSpace:'nowrap', zIndex:2, color:'var(--gold)', opacity:.18, fontFamily:'Cinzel', fontSize:14, letterSpacing:'1em', textTransform:'uppercase', pointerEvents:'none', transform:'translateY(-50%) rotate(-90deg)' }}>॥ Vyāsa · Ganesha · Sauti ॥</div>
+        <div className="side-banner" style={{ position:'absolute', top:'50%', right:30, whiteSpace:'nowrap', zIndex:2, color:'var(--gold)', opacity:.18, fontFamily:'Cinzel', fontSize:14, letterSpacing:'1em', textTransform:'uppercase', pointerEvents:'none', transform:'translateY(-50%) rotate(90deg)' }}>॥ Mahābhārata · 1.00.000 · Śloka ॥</div>
 
         <Mandala />
         <Particles />
@@ -141,23 +141,23 @@ export default function Home() {
       </header>
 
       {/* ── EPICS GRID ── */}
-      <section style={{ padding:'180px 44px 160px', background:'var(--ink-2)', position:'relative', overflow:'hidden' }}>
+      <section style={{ padding:'clamp(80px,12vw,180px) clamp(20px,4vw,44px) clamp(60px,10vw,160px)', background:'var(--ink-2)', position:'relative', overflow:'hidden' }}>
         <div style={{ position:'absolute', top:'10%', left:-100, width:500, height:500, borderRadius:'50%', background:'radial-gradient(circle, rgba(192,53,42,.1), transparent 60%)', pointerEvents:'none' }} />
 
         {/* Section head */}
-        <div className="reveal" style={{ maxWidth:1200, margin:'0 auto 90px', display:'grid', gridTemplateColumns:'1fr auto', gap:30, alignItems:'end' }}>
+        <div className="reveal" style={{ maxWidth:1200, margin:'0 auto 40px', display:'grid', gridTemplateColumns:'1fr', gap:16, alignItems:'end' }}>
           <h2 style={{ fontFamily:'Cinzel', fontWeight:500, fontSize:'clamp(40px,5vw,82px)', lineHeight:1, letterSpacing:'.03em', color:'var(--vellum)' }}>
             The Library
             <em style={{ fontFamily:'"Cormorant Garamond"', fontWeight:300, fontStyle:'italic', color:'var(--gold)', fontSize:'.55em', display:'block', marginTop:12, letterSpacing:'.04em' }}>Granthālaya</em>
           </h2>
-          <div style={{ color:'var(--vellum-mute)', maxWidth:320, textAlign:'right', lineHeight:1.7 }}>
+          <div style={{ color:'var(--vellum-mute)', maxWidth:320, textAlign:'left', lineHeight:1.7 }}>
             <span className="mono" style={{ color:'var(--gold)', display:'block', marginBottom:10 }}>I · The Works</span>
             Each volume is a complete epic retold — eight-line stanzas, iambic pentameter, rhyming ab ab ab cc. One is in progress.
           </div>
         </div>
 
         {/* Cards */}
-        <div className="stagger" style={{ maxWidth:1280, margin:'0 auto', display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:30 }}>
+        <div className="stagger" style={{ maxWidth:1280, margin:'0 auto', display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(min(100%,300px),1fr))', gap:20 }}>
           {/* Mahabharata — active */}
           <Link to="/mahabharata" style={{ textDecoration:'none', color:'inherit', position:'relative', aspectRatio:'3/4', border:'1px solid rgba(228,176,74,.2)', background:'var(--ink)', overflow:'hidden', display:'flex', flexDirection:'column', justifyContent:'space-between', padding:34, transition:'all .6s cubic-bezier(.2,.7,.2,1)' }}
             onMouseEnter={e=>{ e.currentTarget.style.borderColor='var(--gold)'; e.currentTarget.style.transform='translateY(-8px)'; e.currentTarget.style.boxShadow='0 30px 60px -30px rgba(228,176,74,.3)' }}
@@ -231,7 +231,7 @@ export default function Home() {
       </section>
 
       {/* ── QUOTE RAIL ── */}
-      <section style={{ padding:'160px 44px', textAlign:'center', background:'var(--ink)', position:'relative' }}>
+      <section style={{ padding:'clamp(80px,10vw,160px) clamp(20px,4vw,44px)', textAlign:'center', background:'var(--ink)', position:'relative' }}>
         <div style={{ position:'absolute', top:'50%', left:'50%', transform:'translate(-50%,-50%)', width:700, height:700, border:'1px solid var(--gold)', borderRadius:'50%', opacity:.06 }} />
         <div style={{ position:'absolute', top:'50%', left:'50%', transform:'translate(-50%,-50%)', width:500, height:500, border:'1px dashed var(--gold)', borderRadius:'50%', opacity:.08 }} />
         <div className="reveal" style={{ maxWidth:900, margin:'0 auto', position:'relative' }}>
@@ -256,7 +256,7 @@ export default function Home() {
       </div>
 
       {/* ── COLOPHON ── */}
-      <section style={{ padding:'140px 44px 60px', background:'var(--ink-2)', position:'relative', overflow:'hidden' }}>
+      <section style={{ padding:'clamp(70px,10vw,140px) clamp(20px,4vw,44px) 60px', background:'var(--ink-2)', position:'relative', overflow:'hidden' }}>
         <div className="reveal" style={{ maxWidth:900, margin:'0 auto', textAlign:'center' }}>
           <div style={{ fontFamily:'Cinzel', color:'var(--gold)', fontSize:42, marginBottom:24 }}>ॐ</div>
           <h3 style={{ fontFamily:'Cinzel', fontSize:'clamp(32px,4vw,56px)', fontWeight:500, color:'var(--vellum)', letterSpacing:'.04em', lineHeight:1.1 }}>
@@ -269,7 +269,7 @@ export default function Home() {
             — Anshuman Dhami, scribe
           </div>
         </div>
-        <footer style={{ maxWidth:1280, margin:'80px auto 0', padding:'40px 0', borderTop:'1px solid rgba(228,176,74,.15)', display:'grid', gridTemplateColumns:'1fr auto 1fr', gap:30, alignItems:'center', color:'var(--vellum-mute)', fontSize:13 }}>
+        <footer style={{ maxWidth:1280, margin:'80px auto 0', padding:'40px 0', borderTop:'1px solid rgba(228,176,74,.15)', display:'grid', gridTemplateColumns:'1fr', gap:12, alignItems:'center', color:'var(--vellum-mute)', fontSize:13, textAlign:'center' }}>
           <div>© Anshuman Dhami · MMXXV</div>
           <div style={{ textAlign:'center', color:'var(--gold)', fontFamily:'Cinzel', letterSpacing:'.3em', textTransform:'uppercase', fontSize:11 }}>The Verse Sanctum</div>
           <div style={{ textAlign:'right' }}><a href="#top" style={{ color:'var(--gold)', fontFamily:'"JetBrains Mono",monospace', fontSize:11, letterSpacing:'.2em', textTransform:'uppercase', textDecoration:'none' }}>Return to the top ↑</a></div>
