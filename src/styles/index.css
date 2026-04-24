@@ -149,3 +149,37 @@ body::before {
 .marquee-track span::after { content: "✧"; color: var(--gold); font-size: 20px; }
 .marquee-track .alt { color: var(--gold); font-style: italic; text-transform: none; font-family: "Cormorant Garamond", serif; font-weight: 300; }
 @keyframes marquee { to { transform: translateX(-50%); } }
+
+/* ===== Mobile responsive ===== */
+@media (max-width: 768px) {
+  /* Nav */
+  nav .hidden-mobile { display: none !important; }
+
+  /* Parts timeline — simplify on mobile */
+  .parts-spine { display: none; }
+  .part-grid-mobile {
+    grid-template-columns: 60px 1fr !important;
+    gap: 16px !important;
+    padding-left: 0 !important;
+  }
+  .part-grid-mobile .part-desc,
+  .part-grid-mobile .part-range,
+  .part-grid-mobile .part-arrow { display: none; }
+
+  /* Marquee slow down slightly */
+  .marquee-track { animation-duration: 35s; }
+
+  /* Colophon sign */
+  .col-sign { font-size: 18px !important; }
+
+  /* CTA button */
+  .cta { padding: 14px 24px !important; font-size: 10px !important; }
+
+  /* Hide decorative side banners */
+  .side-banner { display: none !important; }
+}
+
+@media (max-width: 480px) {
+  .marquee-track { font-size: 16px !important; gap: 32px !important; }
+  .marquee-track span { gap: 32px !important; }
+}
